@@ -13,14 +13,14 @@ const receiveSudoku = sudoku => ({
     sudoku
 });
 
-export const fetchSudokus = () => dispatch (
+export const fetchSudokus = () => dispatch => (
     getSudokus()
         .then(sudokus => dispatch(receiveSudokus(sudokus)))
         .catch(err => console.log(err))
 );
 
-export const fetchSudoku = id => dispatch (
+export const fetchSudoku = id => dispatch => (
     getSudoku(id)
-        .then(sudoku => dispatch(receiveSudoku(sudoku)))
+        .then(sudoku => dispatch(receiveSudoku(sudoku.data)))
         .catch(err => console.log(err))
 );
