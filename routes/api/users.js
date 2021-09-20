@@ -95,16 +95,46 @@ router.post('/login', (req, res) => {
 });
 
 
-router.patch('/:username', (req, res) => {
-    User.findOneAndUpdate({username: req.params.username}, { "$push": { "completion_time": { time: req.body.time, puzzle_id: req.body.puzzle_id }} }, 
-        {new: true, upsert: true}, (err, doc) => {
-            
-            if (err){
-                return res.send(500, { error: err});
-            } 
-            console.log(doc);
-            return res.send('updated!')
-        } )
+router.patch('/:id', (req, res) => {
+
+    
+
+    let update = { 
+        username: req.body.username,  
+        first_name: req.body.first_name, 
+        last_name: req.body.last_name 
+    };
+
+    if (req.body.time && req.body.puzzle_id){
+        update["$push"] = { "completion_time": { time: req.body.time, puzzle_id: req.body.puzzle_id } };
+    }
+
+    let options = { new: true };
+    
+    User.findByIdAndUpdate(req.params.id, update, options, (err, doc) => {
+  
+        if (err){
+            res.json(err);
+        }
+        res.json(doc);
+    });
+    
+
+})
+
+router.delete('/:userId', (req, res) => {
+    
+    User.findByIdAndRemove(req.params.userId ).then( user => {
+        res.json(user);
+    })
+    
+})
+
+router.get('/:userId', (req, res) => {
+
+    User.findById(req.params.userId).then( user => {
+        res.json(user);
+    })
 })
 
 module.exports = router;
