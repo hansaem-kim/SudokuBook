@@ -17,6 +17,9 @@ class SudokuShow extends React.Component {
             <div>
                 <p>HI!</p>
                 <p>{sudoku.puzzle}</p>
+                <div className='canvas-div'>
+                    <canvas id='canvas' width=''></canvas>
+                </div>
             </div>
         )
     }
