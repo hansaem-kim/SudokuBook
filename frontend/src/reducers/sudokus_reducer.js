@@ -6,7 +6,9 @@ const SudokusReducer = (oldState={}, action) => {
         case RECEIVE_SUDOKUS:
             return action.sudokus
         case RECEIVE_SUDOKU:
-            return action.sudoku
+            let newState = Object.assign({}, oldState)
+            newState[action.sudoku._id] = action.sudoku;
+            return newState;
         default:
             return oldState;
     }
