@@ -92,6 +92,19 @@ router.post('/login', (req, res) => {
                     
                 })
         })
+});
+
+
+router.patch('/:username', (req, res) => {
+    User.findOneAndUpdate({username: req.params.username}, { "$push": { "completion_time": { time: req.body.time, puzzle_id: req.body.puzzle_id }} }, 
+        {new: true, upsert: true}, (err, doc) => {
+            
+            if (err){
+                return res.send(500, { error: err});
+            } 
+            console.log(doc);
+            return res.send('updated!')
+        } )
 })
 
 module.exports = router;
