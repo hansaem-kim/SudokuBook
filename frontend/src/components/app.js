@@ -1,7 +1,6 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
-import Splash from './splash/splash';
-
+import { Route, Switch } from 'react-router-dom';
+import MainPage from './main/main_page';
 
 const App = () => (
     <div>
