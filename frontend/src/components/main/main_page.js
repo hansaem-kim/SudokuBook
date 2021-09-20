@@ -1,14 +1,16 @@
 import React from 'react';
 
-class Splash extends React.Component {
+class MainPage extends React.Component {
 
     render() {
         return (
         <div>
             <h1>Sudoku-Book</h1>
+            <button>Log In</button>
+            <button>Sign Out</button>
         </div>
         );
     }
 }
 
-export default Splash;
+export default MainPage;
