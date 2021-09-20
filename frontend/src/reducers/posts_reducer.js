@@ -11,3 +11,5 @@ const PostsReducer = (oldState={}, action) => {
             return null;
     }
 }
+
+export default PostsReducer;
