@@ -25,13 +25,13 @@ const UserSchema = new Schema({
     completion_time: {
       type: Array,
       required: false
-  }  
+    }  
   
   }, 
     
-    {
+  {
     timestamps: true
-    }
+  }
 )
 
 const User = mongoose.model('users', UserSchema);
