@@ -15,6 +15,11 @@ const PostSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+
+    puzzle: {
+        type: Schema.Types.ObjectId,
+        ref: 'sudoku'
     }
  });
 
