@@ -1,14 +1,20 @@
-import { RECEIVE_POSTS, RECEIVE_USER_POSTS, RECEIVE_NEW_POST } from '../actions/post_actions';
+import { RECEIVE_POSTS, RECEIVE_NEW_POST, REMOVE_POST } from '../actions/post_actions';
 
 const PostsReducer = (oldState={}, action) => {
     Object.freeze(oldState);
+    let newState = Object.assign({}, oldState)
     switch (action.type) {
         case RECEIVE_POSTS:
-            return action.posts;
-        case RECEIVE_USER_POSTS:
-            return Object.assign({}, oldState, {[action.post.id]: action.post});
+            newState = action.posts.data;
+            return newState;
         case RECEIVE_NEW_POST:
-            return null;
+            newState[action.post.id] = JSON.parse(action.post.config.data);
+            return newState;
+        case REMOVE_POST:
+            delete newState[action.postId];
+            return newState;
+        default:
+            return oldState;
     }
 }
 
