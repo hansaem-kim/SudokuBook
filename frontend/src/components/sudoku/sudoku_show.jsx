@@ -1,4 +1,5 @@
 import React from 'react';
+import Board from '../game/board'
 
 class SudokuShow extends React.Component {
     // constructor(props){
@@ -16,7 +17,8 @@ class SudokuShow extends React.Component {
         return (
             <div>
                 <p>HI!</p>
-                <p>{sudoku.puzzle}</p>
+                {/* <p>{sudoku.puzzle}</p> */}
+                <Board puzzle={sudoku.puzzle}/> 
             </div>
         )
     }
