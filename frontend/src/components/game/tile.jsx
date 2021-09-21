@@ -1,10 +1,25 @@
 import React from 'react';
 
 class Tile extends React.Component {
+    constructor(props){
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e){
+        e.preventDefault();
+        const {updateBoard, coordinates} = this.props;
+        updateBoard(coordinates, e.currentTarget.value);
+    }
+
     render() {
-        const inp = this.props.value === 0 ? <input type="text" /> : this.props.value;
+        const inp = this.props.inputTile ? 
+            <input type="text" onChange={this.handleChange}/> 
+                : 
+            <div className='prefilled'>{this.props.value}</div>;
+        
         return (
-            <div>
+            <div className='tile'>
                 {inp}
             </div>
         )
