@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBarContainer from './navbar_container';
 
 class Home extends React.Component {
     constructor(props) {
@@ -8,15 +9,13 @@ class Home extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.props.history.push('/');
-        this.props.logout();
     }
+
     render() {
         return (
-        <div>
-            <p>If you see this page, it means you are successfully logged in</p>
-            <button onClick={this.handleClick}>Log Out</button>
-        </div>
+            <div>
+                <NavBarContainer />
+            </div>
         );
     }
 }

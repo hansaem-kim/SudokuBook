@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.png';
 class MainPage extends React.Component {
     componentDidMount() {
         if (this.props.loggedIn) {
-            this.props.history.push('/app');
+            this.props.history.push('/home');
         }
     }
 
