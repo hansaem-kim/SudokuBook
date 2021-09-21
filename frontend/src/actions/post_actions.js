@@ -1,8 +1,9 @@
-import { getPosts, getUserPosts, writePost } from '../util/post_api_util';
+import * as Util from '../util/post_api_util';
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_USER_POSTS = "RECEIVE_USER_POSTS";
 export const RECEIVE_NEW_POST = "RECEIVE_NEW_POST";
+export const REMOVE_POST = "REMOVE_POST";
 
 export const receivePosts = posts => ({
     type: RECEIVE_POSTS,
@@ -19,21 +20,40 @@ export const receiveNewPost = post => ({
     post
 });
 
+export const removePost = postId => ({
+    type: REMOVE_POST,
+    postId
+});
+
 export const fetchPosts = () => dispatch => (
-    getPosts()
+    Util.getPosts()
         .then(posts => dispatch(receivePosts(posts)))
         .catch(err => console.log(err))
 );
 
 export const fetchUserPosts = id => dispatch => (
-    getUserPosts(id)
+    Util.getUserPosts(id)
         .then(posts => dispatch(receiveUserPosts(posts)))
         .catch(err => console.log(err))
 );
 
-export const createPost = data => dispatch => (
-    writePost(data)
+export const createPost = post => dispatch => (
+    Util.createPost(post)
         .then(post => dispatch(receiveNewPost(post)))
         .catch(err => console.log(err))
 );
+
+export const updatePost = post => dispatch => (
+    Util.updatePost(post)
+        .then(post => dispatch(receiveNewPost(post)))
+        .catch(err => console.log(err))
+);
+
+export const deletePost = postId => dispatch => (
+    Util.deletePost(postId)
+        .then(() => dispatch(removePost(postId)))
+        .catch(err => console.log(err))
+);
+
+
 
