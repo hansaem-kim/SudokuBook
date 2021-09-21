@@ -95,7 +95,7 @@ router.post('/login', (req, res) => {
 });
 
 
-router.patch('/:id', (req, res) => {
+router.patch('/', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     
 
@@ -111,7 +111,7 @@ router.patch('/:id', (req, res) => {
 
     let options = { new: true };
     
-    User.findByIdAndUpdate(req.params.id, update, options, (err, doc) => {
+    User.findByIdAndUpdate(req.user.id, update, options, (err, doc) => {
   
         if (err){
             res.json(err);
