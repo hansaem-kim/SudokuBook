@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSudoku } from '../../actions/sudoku_actions';
+import { fetchSudoku, receiveAnswer } from '../../actions/sudoku_actions';
 import SudokuShow from './sudoku_show';
 
 const mSTP = (state, ownProps) => ({
@@ -7,7 +7,8 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = dispatch => ({
-    fetchSudoku: sudokuId => dispatch(fetchSudoku(sudokuId))
+    fetchSudoku: sudokuId => dispatch(fetchSudoku(sudokuId)),
+    receiveAnswer: answer => dispatch(receiveAnswer(answer))
 })
 
 export default connect(mSTP, mDTP)(SudokuShow);
