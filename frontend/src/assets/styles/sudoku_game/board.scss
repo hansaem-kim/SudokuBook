@@ -1,0 +1,28 @@
+.board {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.tile {
+    border: 1px solid lightskyblue;
+    height: 5vh;
+
+    * {
+        width: 10vw;
+        height: 95%;
+        border: none;
+    }
+
+    div {
+        padding: 1px 2px;
+        // border: 1px solid black;
+    }
+
+    .prefilled {
+        color: green;
+    }
+}

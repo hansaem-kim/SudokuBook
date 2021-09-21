@@ -4,59 +4,90 @@ import Tile from './tile';
 class Board extends React.Component {
     constructor(props){
         super(props)
-        this.createTwoDArray = this.createTwoDArray.bind(this);
-        this.renderBoard = this.renderBoard.bind(this);
+        this.state = {
+            gameBoard: this.props.twoD,
+            finished: false,
+            correct: false
+        }
+        this.inputTiles = []
+        this.renderRow = this.renderRow.bind(this);
+        this.renderTiles = this.renderTiles.bind(this);
+        this.updateBoard = this.updateBoard.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    // this.props.puzzle = [NUMBERS]
 
-    createTwoDArray(puzzle){
-        let i = 0;
-        let j = 0;
-        let k = 0;
-        const finalArr = [];
-        
-        while (i < 81) {
-            while (j < 9) {
-                let row = [];
-                while (k < 9){
-                    row.push(puzzle[i]);
-                    i += 1;
-                    k += 1;
+    renderRow(twoDArray){
+        return twoDArray.map((row, i) => {
+            return (
+                <div className='row' key={`row-${i}`}>
+                    {this.renderTiles(row, i)}
+                </div>
+            )
+        })
+    }
+
+    renderTiles(row, i){
+        return row.map((ele, j) => {
+            if (ele === 0) {
+                this.inputTiles.push([i,j])
+            }
+            let inputTileBoolean = false;
+            this.inputTiles.forEach(subArr => {
+                if (JSON.stringify(subArr) === JSON.stringify([i, j])){
+                    inputTileBoolean = true;
                 }
-                finalArr.push(row);
-                j += 1;
-                k = 0;
-            }
-            j = 0;
-        }
-        return finalArr;
+            })
+
+            return (
+                <Tile
+                    value={ele}
+                    coordinates={[i, j]}
+                    key={[i, j]}
+                    updateBoard={this.updateBoard}
+                    inputTile={inputTileBoolean}
+                />
+            )
+        })
     }
 
-    renderBoard(transformedPuzzle){
-        const board = [];
-        for (let i = 0; i < transformedPuzzle.length; i++) {
-            const row = [];
-            for (let j = 0; j < transformedPuzzle.length; j++) {
-                const element = transformedPuzzle[i][j];
-                const tile = <Tile 
-                                value={element}
-                                coordinates={[i,j]}
-                                key={[i,j]}
-                            />
-                row.push(tile);
-            }
-            board.push(row);
-        }
-        return board;
+    updateBoard(coordinates, value){
+        let oldBoard = Object.assign([], this.state.gameBoard)
+        this.setState({ 
+            gameBoard: Object.assign(
+                [], 
+                oldBoard, 
+                oldBoard[coordinates[0]][coordinates[1]] = parseInt(value)
+            ) 
+        })
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.receiveAnswer(this.state.gameBoard);
+        const {answer} = this.props;
+        const userAnswer = this.state.gameBoard.flat()
+        const correct = (JSON.stringify(answer) === JSON.stringify(userAnswer))
+        this.setState({finished: true})
+        this.setState({correct: correct})
     }
 
     render() {
-        const twoD = this.createTwoDArray(this.props.puzzle);
-        const renderedBoard = this.renderBoard(twoD);
+        const gameBoard = this.renderRow(this.props.twoD);
+        const endText = this.state.correct ? 
+            <p>'Perfect!'</p> 
+                : 
+            <div><p>'Not quite..'</p><button onClick={this.handleSubmit}>Resubmit</button></div>
+        const endButton = !this.state.finished ? 
+            <button onClick={this.handleSubmit}>Submit</button>
+                :
+            <div>{endText}</div>;
+
         return (
-            <div>
-                <p>THIS IS IN BOARD COMPONENT</p>
-                {renderedBoard}
+            <div className='game-container'>
+                <div className='board'>
+                    {gameBoard}
+                </div>
+                {endButton}
             </div>
         )
     }
