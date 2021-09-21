@@ -4,29 +4,32 @@ import { withRouter } from 'react-router-dom';
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             username: '',
             password: '',
             password2: '',
-            errors: {}
+            first_name: '',
+            last_name: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.clearedErrors = false;
-    }
+    } 
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.signedIn === true) {
-            this.props.history.push('/login');
+    componentDidMount() {
+        this.props.clearErrors();
+    }
+    
+    componentDidUpdate() {
+        if (this.props.loggedIn) {
+            this.props.history.push('/home');
+            this.props.closeModal();
         }
-
-        this.setState({ errors: nextProps.errors })
     }
+
 
     update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.value
-        });
+        return e => this.setState({ [field]: e.currentTarget.value });
     }
 
     handleSubmit(e) {
@@ -34,18 +37,20 @@ class SignupForm extends React.Component {
         let user = {
             username: this.state.username,
             password: this.state.password,
-            password2: this.state.password2
+            password2: this.state.password2,
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
         };
-
+        
         this.props.signup(user, this.props.history);
     }
 
     renderErrors() {
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
+                {Object.keys(this.props.errors).map((error, i) => (
+                    <li className="session-errors" key={`error-${i}`}>
+                        {this.props.errors[error]}
                     </li>
                 ))}
             </ul>
@@ -56,12 +61,14 @@ class SignupForm extends React.Component {
         return (
             <div className="signup-form-container">
                 <form onSubmit={this.handleSubmit}>
+                    <span onClick={this.props.closeModal} className="close-x">X</span>
+
                     <div className="signup-form">
                         <br />
                         <input type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
-                            placeholder="username"
+                            placeholder="Username"
                         />
                         <br />
                         <input type="password"
@@ -74,6 +81,18 @@ class SignupForm extends React.Component {
                             value={this.state.password2}
                             onChange={this.update('password2')}
                             placeholder="Confirm Password"
+                        />
+                        <br />
+                        <input type="text"
+                            value={this.state.first_name}
+                            onChange={this.update('first_name')}
+                            placeholder="First Name"
+                        />
+                        <br />
+                        <input type="text"
+                            value={this.state.last_name}
+                            onChange={this.update('last_name')}
+                            placeholder="Last Name"
                         />
                         <br />
                         <input type="submit" value="Submit" />

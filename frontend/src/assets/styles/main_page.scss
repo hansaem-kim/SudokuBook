@@ -1,0 +1,33 @@
+.main-page-background {
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(44,125,160,1) 0%, rgba(97,165,194,1) 35%, rgba(169,214,229,1) 100%);    
+}
+
+.main-page-content {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -150px;
+}
+
+.main-page-content button {
+    margin-bottom: 10px;
+    height: 60px;
+    border: 0.5px solid #468faf;
+    border-radius: 5px;
+    background-color: rgba(1, 42, 74, 0.2);
+    color: rgb(235, 235, 235);
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(1, 73, 124, 0.5);
+        color: lightgray;
+        transition: 200ms;
+    }
+}
