@@ -8,6 +8,14 @@ export const getUserPosts = id => {
     return axios.get(`/api/posts/user/${id}`)
 };
 
-export const writePost = data => {
-    return axios.post('/api/posts/', data)
+export const createPost = post => {
+    return axios.post('/api/posts/', post)
+}
+
+export const updatePost = post => {
+    return axios.patch(`/api/posts/${post._id}`, post)
+}
+
+export const deletePost = postId => {
+    return axios.delete(`/api/posts/${postId}`)
 }
