@@ -1,13 +1,18 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import MainPage from './main/main_page';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import MainPageContainer from './main/main_page_container';
+import Modal from './modal/modal';
+import HomeContainer from './main/home_container';
 import SudokuShowContainer from './sudoku/sudoku_show_container';
 
 const App = () => (
     <div>
+        <Modal />
         <Switch>
-        <Route exact path={`/sudokus/:sudokuId`} component={SudokuShowContainer} />
-        <Route exact path="/" component={MainPage} />
+            <Route exact path="/" component={MainPageContainer} />
+            <ProtectedRoute exact path="/home" component={HomeContainer} />
+            <Route exact path={`/sudokus/:sudokuId`} component={SudokuShowContainer} />
         </Switch>
     </div>
 );
