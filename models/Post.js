@@ -21,7 +21,7 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'sudoku'
     }
- });
+});
 
 const Post = mongoose.model('post', PostSchema);
 
