@@ -7,21 +7,23 @@ class LoginForm extends React.Component {
 
         this.state = {
             username: '',
-            password: '',
-            errors: {}
+            password: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderErrors = this.renderErrors.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.currentUser === true) {
-            this.props.history.push('/posts');
+    componentDidMount() {
+        this.props.clearErrors();
+    }
+    
+    componentDidUpdate() {
+        if (this.props.loggedIn) {
+            this.props.history.push('/home');
+            this.props.closeModal();
         }
-
-        this.setState({ errors: nextProps.errors })
     }
+
 
     update(field) {
         return e => this.setState({
@@ -36,16 +38,15 @@ class LoginForm extends React.Component {
             username: this.state.username,
             password: this.state.password
         };
-
         this.props.login(user);
     }
 
     renderErrors() {
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
+                {Object.keys(this.props.errors).map((error, i) => (
+                    <li className="session-errors" key={`error-${i}`}>
+                        {this.props.errors[error]}
                     </li>
                 ))}
             </ul>
@@ -54,9 +55,10 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="login-form-container">
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <span onClick={this.props.closeModal} className="close-x">X</span>
+                    <div className="login-form">
                         <br />
                         <input type="text"
                             value={this.state.username}

@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+}
+
+
+
+
+.navbar img {
+    height: 60px;
+}
+.NavBar button {
+    height: 200px;
+}
+
+.Links1 {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Links2 {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
