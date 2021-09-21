@@ -51,7 +51,7 @@ router.patch('/:id', (req, res) => {
     }
 
     Post.findByIdAndUpdate( req.params.id, update, { new: true }, (err, doc) => {
-        if (err){ res.json(err) };
+        if (err){ return res.json(err) };
         res.json(doc);
     })
 });
