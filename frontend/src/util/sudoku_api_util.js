@@ -7,3 +7,7 @@ export const getSudokus = () => {
 export const getSudoku = id => {
     return axios.get(`/api/sudokus/${id}`)
 }
+
+export const patchSudoku = (data) => {
+    return axios.patch(`/api/sudokus`, data)
+}
