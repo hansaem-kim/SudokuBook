@@ -7,7 +7,7 @@ class Board extends React.Component {
         super(props)
         this.state = {
             gameBoard: this.props.twoD,
-            time: 0,
+            timerOn: true,
             finished: false,
             correct: false
         }
@@ -17,14 +17,6 @@ class Board extends React.Component {
         this.updateBoard = this.updateBoard.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    // componentDidMount(){
-    //     this.timeInterval = setInterval(() => {
-    //         this.setState(prevState => ({
-    //             count: prevState.count + 1
-    //         }))
-    //     }, 1000)
-    // }
 
     renderRow(twoDArray){
         return twoDArray.map((row, i) => {
@@ -73,12 +65,17 @@ class Board extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.receiveAnswer(this.state.gameBoard);
+        // this.props.receiveAnswer(this.state.gameBoard);
         const {answer} = this.props;
         const userAnswer = this.state.gameBoard.flat()
         const correct = (JSON.stringify(answer) === JSON.stringify(userAnswer))
         this.setState({finished: true})
         this.setState({correct: correct})
+        // this.setState({timerOn: false})
+        if (correct) {
+            this.setState({timerOn: false});
+            this.props.receiveAnswer(this.state.gameBoard);
+        }
     }
 
     render() {
@@ -94,7 +91,7 @@ class Board extends React.Component {
 
         return (
             <div className='game-container'>
-                <Timer />
+                <Timer timerOn={this.state.timerOn}/>
                 <div className='board'>
                     {gameBoard}
                 </div>
