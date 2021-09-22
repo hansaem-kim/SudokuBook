@@ -26,6 +26,7 @@ class Timer extends React.Component {
             }))
         };
         if (!this.props.timerOn) {
+            this.props.receiveTime({ minutes: this.state.minutes, seconds: this.state.seconds });
             clearInterval(this.secondInterval);
             clearInterval(this.minuteInterval);
         };
@@ -33,6 +34,7 @@ class Timer extends React.Component {
 
     stopTimer(e){
         e.preventDefault();
+        this.props.receiveTime({minutes: this.state.minutes, seconds: this.state.seconds});
         clearInterval(this.secondInterval);
         clearInterval(this.minuteInterval);
     }

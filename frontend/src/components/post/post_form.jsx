@@ -7,14 +7,26 @@ class PostForm extends React.Component{
             _id: this.props.post._id,
             text: this.props.post.text,
             user: this.props.currentUser.id,
+            time: this.props.time,
+            puzzle: this.props.sudokuId 
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateTime = this.updateTime.bind(this);
+    }
+
+    componentDidMount(){
+        this.setState({time: this.props.time});
     }
 
     handleSubmit(e){
         e.preventDefault();
+        this.setState({time: this.props.time, sudokuId: this.props.sudokuId}, () => 
+        this.props.action(this.state).then(this.props.closeModal)
+        );
+    }
 
-        this.props.action(this.state).then(this.props.closeModal);
+    updateTime(){
+        this.setState({time: this.props.time})
     }
 
     update(field){
@@ -22,8 +34,29 @@ class PostForm extends React.Component{
     }
 
     render(){
-        const {currentUser} = this.props;
-        return(
+        const {currentUser, time} = this.props;
+   
+        let clockMinutes = null;
+        let clockSeconds = null;
+        if (time.minutes){
+            clockMinutes = time.minutes;
+            clockMinutes = (clockMinutes < 10) ? `0${clockMinutes}` : clockMinutes;
+        } else {
+            clockMinutes = '00';
+        }
+        if (time.seconds){
+            clockSeconds = time.seconds;
+            clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
+        }
+        
+        const userTime = time.seconds ? 
+            (<div className='time'>
+                <p>Your completion time: {clockMinutes}:{clockSeconds}</p>
+            </div>)
+            : 
+            null;
+
+            return(
             <div className='post-form'>
                 <header>
                     <div className='form-type'>
@@ -40,7 +73,7 @@ class PostForm extends React.Component{
                         <div className='post-textarea-div'>
                             <textarea className='post-textarea' placeholder="How was the game?" value={this.state.text} onChange={this.update("text")}/>
                         </div>
-
+                        {userTime}
                         <footer>
                             <button className='post-submit-btn'>Post</button>
                         </footer>
