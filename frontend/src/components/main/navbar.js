@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo.png';
+import SearchContainer from '../search/search_container';
 
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
     
         this.logoutUser = this.logoutUser.bind(this);
-        this.getLinks = this.getLinks.bind(this);
     }
 
     logoutUser(e) {
@@ -15,22 +15,18 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
-    getLinks() {
-        if (this.props.loggedIn) {
-            return (
-                <div>
-                    <Link to={'/profile'}>Profile</Link>
-                    <button onClick={this.logoutUser}>Logout</button>
-                </div>
-            );
-        }
-    }
-
     render() {
+        if (!this.props.loggedIn) return null;
         return (
             <div className="navbar">
-                <img src={logo} alt="logo" />
-                { this.getLinks() }
+                <Link className="navbar-user-link" to={'/home'}>
+                    <img src={logo} alt="logo" />
+                </Link>
+                <SearchContainer />
+                <div className="navbar-user">
+                    <Link className="navbar-user-link" to={'/profile'}>Profile</Link>
+                    <button onClick={this.logoutUser}>Logout</button>
+                </div>
             </div>
         );
     }
