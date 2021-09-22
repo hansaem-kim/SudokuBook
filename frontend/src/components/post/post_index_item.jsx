@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { openModal } from "../../actions/modal_actions";
 import { fetchUser } from "../../actions/user_actions";
+import { withRouter } from 'react-router-dom';
 
 
 class PostIndexItem extends React.Component {
@@ -88,6 +89,12 @@ class PostIndexItem extends React.Component {
                 null;
         }
 
+        let playSudokuButton = null;
+        if (this.props.post.puzzle) {
+            playSudokuButton = <button onClick={()=>this.props.history.push(`/sudokus/${this.props.post.puzzle}`)}  > Beat this time! </button>
+        }
+
+
         return(
             <div className='created-post-div'>
                 <header className='created-post-header'>
@@ -101,6 +108,7 @@ class PostIndexItem extends React.Component {
                 <div className="created-post-body"> 
                     <p>{this.props.post.text}</p>
                     {userTime}
+                    {playSudokuButton}
                 </div>
 
             </div>
@@ -122,4 +130,4 @@ const mDTP = (dispatch) => ({
     fetchUser: (id) => dispatch(fetchUser(id)),
 });
 
-export default connect(mSTP, mDTP)(PostIndexItem);
+export default connect(mSTP, mDTP)(withRouter(PostIndexItem));
