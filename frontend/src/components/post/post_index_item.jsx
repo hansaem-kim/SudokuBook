@@ -65,6 +65,28 @@ class PostIndexItem extends React.Component {
         }else{
             dropdown = null;
         }
+        let userTime=null;
+        if (this.props.post.time){
+            const {time} = this.props.post;
+            let clockMinutes = null;
+            let clockSeconds = null;
+            if (time.minutes) {
+                clockMinutes = time.minutes;
+                clockMinutes = (clockMinutes < 10) ? `0${clockMinutes}` : clockMinutes;
+            } else {
+                clockMinutes = '00';
+            }
+            if (time.seconds) {
+                clockSeconds = time.seconds;
+                clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
+            }
+            userTime = time.seconds ? 
+                (<div className='time'>
+                    <p>{username}'s completion time: {clockMinutes}:{clockSeconds}</p>
+                </div>)
+                :
+                null;
+        }
 
         return(
             <div className='created-post-div'>
@@ -78,6 +100,7 @@ class PostIndexItem extends React.Component {
                 
                 <div className="created-post-body"> 
                     <p>{this.props.post.text}</p>
+                    {userTime}
                 </div>
 
             </div>

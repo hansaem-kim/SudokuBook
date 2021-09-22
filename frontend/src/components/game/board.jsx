@@ -72,10 +72,11 @@ class Board extends React.Component {
         this.setState({finished: true})
         this.setState({correct: correct})
         // this.setState({timerOn: false})
-        if (correct) {
+        // if (correct) {
             this.setState({timerOn: false});
             this.props.receiveAnswer(this.state.gameBoard);
-        }
+            this.props.openModal('endGame', this.props.sudokuId);
+        // }
     }
 
     render() {
@@ -91,7 +92,7 @@ class Board extends React.Component {
 
         return (
             <div className='game-container'>
-                <Timer timerOn={this.state.timerOn}/>
+                <Timer timerOn={this.state.timerOn} receiveTime={this.props.receiveTime}/>
                 <div className='board'>
                     {gameBoard}
                 </div>
