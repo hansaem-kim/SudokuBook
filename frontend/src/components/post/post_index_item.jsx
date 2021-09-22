@@ -72,10 +72,7 @@ class PostIndexItem extends React.Component {
                         <div className="author-name-div">
                             {username}
                         </div>
-                        <div className="buttons">
-                            {editButton}
-                            {deleteButton}
-                        </div>
+                        {dropdown}
 
                 </header>
                 
