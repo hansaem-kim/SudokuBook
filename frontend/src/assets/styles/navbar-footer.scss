@@ -1,0 +1,92 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(270deg, rgba(44,125,160,1) 0%, rgba(97,165,194,1) 35%, rgba(169,214,229,1) 100%);
+}
+
+.navbar img {
+    height: 50px;
+    margin: 0 15px;
+}
+
+.navbar-user-link {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    &:hover {
+        color: lightgray;
+        transition: 200ms;
+    }
+}
+
+.navbar-user button {
+    height: 40px;
+    width: 80px;
+    margin: 10px 50px;
+    border: 0;
+    border-radius: 5px;
+    background-color: rgba(1, 42, 74, 0.2);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(1, 73, 124, 0.5);
+        color: lightgray;
+        transition: 200ms;
+    }
+}
+
+.search-bar input[type=text] {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    outline: none;
+    text-indent: 10px;
+    padding: 5px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 3px;
+    &::placeholder {
+        color: darkgray;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
+.search-bar input[type=submit] {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    padding: 5px 15px;
+    font-size: 16px;
+    background-color: rgba(1, 42, 74, 0.5);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    letter-spacing: 2px;
+    &:hover {
+        background-color: rgb(1, 73, 124, 0.5);
+        color: lightgray;
+        transition: 200ms;
+    }
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #012a4a;
+    color: white;
+    text-align: center;
+}
+
+.footer-content {
+    margin: 10px 0;
+}
