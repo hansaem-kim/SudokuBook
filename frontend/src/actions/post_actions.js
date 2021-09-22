@@ -20,7 +20,7 @@ export const receiveNewPost = post => ({
     post
 });
 
-export const removePost = postId => ({
+export const deletePost = postId => ({
     type: REMOVE_POST,
     postId
 });
