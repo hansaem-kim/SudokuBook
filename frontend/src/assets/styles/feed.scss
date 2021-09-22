@@ -1,0 +1,26 @@
+.feed-div{
+    padding: 10px;
+}
+
+.created-post-div{
+    margin: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    width: 30vw;
+    padding: 10px;
+
+    header{
+        .author-name-div {
+            font-weight: bold;
+            margin: 10px 0px;
+        }
+
+        .buttons {
+            display: flex;
+            
+        }
+    }
+
+
+
+}
