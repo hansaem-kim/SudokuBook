@@ -11,7 +11,6 @@ const Follow = require('../../models/Follow');
 router.get('/:currentId', (req, res) => {
     Follow.find({ follower: req.params.currentId })
         .then(follows => res.json(follows))
-        .catch(err => res.statusCode(404).json({ nofollowsfound: 'No follows found' }));
 });
 
 router.post('/:followee', 
