@@ -9,5 +9,9 @@ export const updateUser = (user) => {
 };
 
 export const deleteUser = (userId) => {
-    return axios.delete(`/api/posts/${userId}`)
+    return axios.delete(`/api/users/${userId}`)
 };
+
+export const getUsers = () => {
+    return axios.get('api/users')
+}
