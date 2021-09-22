@@ -1,4 +1,4 @@
 [ZoneTransfer]
 ZoneId=3
-ReferrerUrl=https://cloudconvert.com/
-HostUrl=https://storage.cloudconvert.com/tasks/f7150081-152e-4893-b24c-f5c95d6699dc/favicon.ico?AWSAccessKeyId=cloudconvert-production&Expires=1632361895&Signature=x0pJkS%2FEOBr4uprxz9TzT%2BSpO7w%3D&response-content-disposition=attachment%3B%20filename%3D%22favicon.ico%22&response-content-type=image%2Fx-icon
+ReferrerUrl=https://raw.githubusercontent.com/hansaem-kim/SudokuBook/main/frontend/public/favicon.ico
+HostUrl=https://raw.githubusercontent.com/hansaem-kim/SudokuBook/main/frontend/public/favicon.ico
