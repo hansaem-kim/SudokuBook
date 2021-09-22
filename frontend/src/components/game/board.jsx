@@ -1,11 +1,13 @@
 import React from 'react';
 import Tile from './tile';
+import Timer from './timer';
 
 class Board extends React.Component {
     constructor(props){
         super(props)
         this.state = {
             gameBoard: this.props.twoD,
+            time: 0,
             finished: false,
             correct: false
         }
@@ -15,6 +17,14 @@ class Board extends React.Component {
         this.updateBoard = this.updateBoard.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    // componentDidMount(){
+    //     this.timeInterval = setInterval(() => {
+    //         this.setState(prevState => ({
+    //             count: prevState.count + 1
+    //         }))
+    //     }, 1000)
+    // }
 
     renderRow(twoDArray){
         return twoDArray.map((row, i) => {
@@ -84,6 +94,7 @@ class Board extends React.Component {
 
         return (
             <div className='game-container'>
+                <Timer />
                 <div className='board'>
                     {gameBoard}
                 </div>
