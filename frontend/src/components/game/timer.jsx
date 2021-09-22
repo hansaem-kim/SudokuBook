@@ -16,7 +16,7 @@ class Timer extends React.Component {
                 seconds: prevState.seconds + 1
             }))
         }, 1000)
-        this.minuteInterval = setInterval()
+        // this.minuteInterval = setInterval()
     }
 
     stopTimer(e){
@@ -25,10 +25,10 @@ class Timer extends React.Component {
     }
 
     render() {
-        const {count} = this.state;
+        const {seconds} = this.state;
         return (
             <div>
-                <h1>{count}</h1>
+                <h1>{seconds}</h1>
                 <button onClick={this.stopTimer}>STOP(for testing)</button>
             </div>
         )
