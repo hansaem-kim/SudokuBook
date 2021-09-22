@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from '../input/input'
-class Home extends React.Component {
+
+class Search extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
@@ -12,12 +12,12 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>home</p>
-                <Input />
+            <div className="search-bar">
+                <input type="text" placeholder="Search" />
+                <input type="submit" value="Find" />
             </div>
         );
     }
 }
 
-export default Home;
+export default Search;

@@ -20,7 +20,7 @@ export const receiveNewPost = post => ({
     post
 });
 
-export const removePost = postId => ({
+export const deletePost = postId => ({
     type: REMOVE_POST,
     postId
 });
@@ -49,11 +49,6 @@ export const updatePost = post => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const deletePost = postId => dispatch => (
-    Util.deletePost(postId)
-        .then(() => dispatch(removePost(postId)))
-        .catch(err => console.log(err))
-);
 
 
 
