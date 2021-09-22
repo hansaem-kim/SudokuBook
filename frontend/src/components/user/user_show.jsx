@@ -1,30 +1,41 @@
 import React from 'react';
-import { follow, unfollow, fetchFollows } from '../../util/follow_api_util';
+
 
 class UserShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            following: false,
-            fellow_followers: {}
+            following: false
         }
-        this.props.fetchUser(this.props.match.params.userId)
+        
         this.handleFollow = this.handleFollow.bind(this);
-        this.follows = fetchFollows(this.props.currentUser)
-            .then(posts => {
-                this.setState({ fellow_followers: posts }
-                )})
+        
+        this.props.getFollows(this.props.currentUser.id).then(() => {
+            
+            
+            this.props.follows.forEach(el => {
+                if (el.followee == this.props.match.params.userId){
+                    this.setState({
+                        following: true
+                    })
+                    console.log("inside change")
+                }
+            })
+            
+        })
         
     }
+
+    
 
     handleFollow(e){
         e.preventDefault();
         if (this.state.following){
-            unfollow(this.props.match.params.userId).then(() => this.setState({
+            this.props.unfollow(this.props.match.params.userId).then(() => this.setState({
                 following: !this.state.following
             }))
         }else{
-            follow(this.props.match.params.userId).then(() => this.setState({
+            this.props.follow(this.props.match.params.userId).then(() => this.setState({
                 following: !this.state.following
             }))
         }
@@ -34,14 +45,23 @@ class UserShow extends React.Component{
     render(){
         let user = "";
         let button = null;
-        console.log(this.state.fellow_followers);
+
 
         if (this.props.currentUser){
-            
+           
             if (this.props.match.params.userId == "profile"){
                 user = this.props.currentUser;
-            }else if (this.props.users[this.props.match.params.userId]){
-                user = this.props.users[this.props.match.params.userId];
+            }else if (Object.keys(this.props.users).length !== 0){
+
+                for (const property in this.props.users){
+                    if (this.props.users[property]._id === this.props.match.params.userId){
+                      
+                        user = this.props.users[property];
+                    }
+                }
+                
+              
+
                 button = <button 
                     onClick={this.handleFollow} >{this.state.following ? "UnFollow" : "Follow"}
                 </button>;
@@ -49,7 +69,7 @@ class UserShow extends React.Component{
         }
 
 
-        
+       
         
         return (
             <div>

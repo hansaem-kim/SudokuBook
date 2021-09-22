@@ -9,14 +9,22 @@ const passport = require('passport');
 const Follow = require('../../models/Follow');
 
 router.get('/:currentId', (req, res) => {
+    
     Follow.find({ follower: req.params.currentId })
         .then(follows => res.json(follows))
+        .catch(err => res.send(err))
 });
 
 router.post('/:followee', 
 passport.authenticate('jwt', { session: false }),
 (req, res) => {
 
+    Follow.findOne({ followee: req.params.followee })
+        .then(follow => {
+            if (follow){
+                res.send("Already follows")
+            }
+        })
 
     let follower = req.user.id || req.body.follower_id;
 
