@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { fetchPosts }  from "../../actions/post_actions";
+import { fetchUsers }  from "../../actions/user_actions";
 
 import Search from './search';
 
 const mapStateToProps = state => ({
-    posts: Object.values(state.entities.posts)
+    users: Object.values(state.entities.users)
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchPosts: () => (dispatch(fetchPosts())),
+    fetchUsers: () => (dispatch(fetchUsers()))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
