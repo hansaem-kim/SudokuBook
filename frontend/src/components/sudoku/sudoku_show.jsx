@@ -47,6 +47,9 @@ class SudokuShow extends React.Component {
                 <Board 
                     twoD={twoD} 
                     receiveAnswer={this.props.receiveAnswer}
+                    receiveTime={this.props.receiveTime}
+                    openModal={this.props.openModal}
+                    sudokuId={sudoku._id}
                     answer={sudoku.answer}
                 /> 
             </div>
