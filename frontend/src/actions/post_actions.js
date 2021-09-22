@@ -49,11 +49,6 @@ export const updatePost = post => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const deletePost = postId => dispatch => (
-    Util.deletePost(postId)
-        .then(() => dispatch(removePost(postId)))
-        .catch(err => console.log(err))
-);
 
 
 
