@@ -6,6 +6,7 @@ import Modal from './modal/modal';
 import HomeContainer from './main/home_container';
 import SudokuShowContainer from './sudoku/sudoku_show_container';
 import FeedContainer from './feed/feed_container';
+import UserShowContainer from './user/user_show_container';
 
 const App = () => (
     <div>
@@ -15,6 +16,8 @@ const App = () => (
             <ProtectedRoute exact path="/home" component={HomeContainer} />
             <Route exact path={`/sudokus/:sudokuId`} component={SudokuShowContainer} />
             <ProtectedRoute exact path='/feed' component={FeedContainer} />
+            <Route exact path='/:userId' component={UserShowContainer} />
+            
         </Switch>
     </div>
 );
