@@ -2,6 +2,7 @@ import {getSudokus, getSudoku} from '../util/sudoku_api_util';
 
 export const RECEIVE_SUDOKUS = 'RECEIVE_SUDOKUS';
 export const RECEIVE_SUDOKU = 'RECEIVE_SUDOKU';
+export const RECEIVE_ANSWER = 'RECEIVE_ANSWER';
 
 const receiveSudokus = sudokus => ({
     type: RECEIVE_SUDOKUS,
@@ -12,6 +13,11 @@ const receiveSudoku = sudoku => ({
     type: RECEIVE_SUDOKU,
     sudoku
 });
+
+export const receiveAnswer = answer => ({
+    type: RECEIVE_ANSWER,
+    answer
+})
 
 export const fetchSudokus = () => dispatch => (
     getSudokus()

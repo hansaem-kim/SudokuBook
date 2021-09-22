@@ -8,6 +8,7 @@ import NavBarContainer from './main/navbar_container';
 import SudokuShowContainer from './sudoku/sudoku_show_container';
 import FooterContainer from './main/footer_container';
 import ProfileContainer from './profile/profile_container';
+import FeedContainer from './feed/feed_container';
 
 const App = () => (
     <div>
@@ -18,6 +19,7 @@ const App = () => (
             <ProtectedRoute exact path="/home" component={HomeContainer} />
             <ProtectedRoute exact path="/profile" component={ProfileContainer} />
             <Route exact path={`/sudokus/:sudokuId`} component={SudokuShowContainer} />
+            <ProtectedRoute exact path='/feed' component={FeedContainer} />
         </Switch>
         <FooterContainer />
     </div>

@@ -8,7 +8,6 @@ const validatePostInput = require('../../validation/posts');
 
 router.get('/', (req, res) => {
     Post.find()
-        .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
@@ -52,7 +51,7 @@ router.patch('/:id', (req, res) => {
     }
 
     Post.findByIdAndUpdate( req.params.id, update, { new: true }, (err, doc) => {
-        if (err){ res.json(err) };
+        if (err){ return res.json(err) };
         res.json(doc);
     })
 });
