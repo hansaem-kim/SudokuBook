@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const SudokuSchema = new Schema({
         puzzle: [Number],
-        answer: [Number]
+        answer: [Number],
+        scores: {
+            type: Array,
+            required: false
+        }  
     },
     {
         timestamps: true

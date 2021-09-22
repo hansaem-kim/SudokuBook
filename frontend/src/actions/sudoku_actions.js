@@ -1,4 +1,4 @@
-import {getSudokus, getSudoku} from '../util/sudoku_api_util';
+import {getSudokus, getSudoku, patchSudoku} from '../util/sudoku_api_util';
 
 export const RECEIVE_SUDOKUS = 'RECEIVE_SUDOKUS';
 export const RECEIVE_SUDOKU = 'RECEIVE_SUDOKU';
@@ -33,6 +33,12 @@ export const fetchSudokus = () => dispatch => (
 
 export const fetchSudoku = id => dispatch => (
     getSudoku(id)
+        .then(sudoku => dispatch(receiveSudoku(sudoku.data)))
+        .catch(err => console.log(err))
+);
+
+export const updateSudoku = data => dispatch => (
+    patchSudoku(data)
         .then(sudoku => dispatch(receiveSudoku(sudoku.data)))
         .catch(err => console.log(err))
 );

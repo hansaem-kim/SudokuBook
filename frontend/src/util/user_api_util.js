@@ -5,7 +5,7 @@ export const getUser = (userId) => {
 };
 
 export const updateUser = (user) => {
-    return axios.patch(`/api/users/${user.id}`, user)
+    return axios.patch(`/api/users`, user)
 };
 
 export const deleteUser = (userId) => {
