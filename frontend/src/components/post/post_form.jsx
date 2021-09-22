@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 
 class PostForm extends React.Component{
     constructor(props){
@@ -20,8 +21,14 @@ class PostForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.setState({time: this.props.time, sudokuId: this.props.sudokuId}, () => 
-        this.props.action(this.state).then(this.props.closeModal)
+        this.setState({time: this.props.time, puzzle: this.props.sudokuId}, () => 
+        this.props.action(this.state)
+            .then(this.props.closeModal)
+            .then(()=> this.props.updateSudoku(
+                {"time": { minutes: this.props.time.minutes, seconds: this.props.time.seconds },
+                 "user": this.props.currentUser,
+                "id":this.props.sudokuId})
+            .then(()=> this.props.history.push('/feed')))
         );
     }
 
@@ -35,26 +42,30 @@ class PostForm extends React.Component{
 
     render(){
         const {currentUser, time} = this.props;
-   
+        
         let clockMinutes = null;
         let clockSeconds = null;
-        if (time.minutes){
-            clockMinutes = time.minutes;
-            clockMinutes = (clockMinutes < 10) ? `0${clockMinutes}` : clockMinutes;
-        } else {
-            clockMinutes = '00';
+        let userTime = null;
+        if (time){
+            if (time.minutes){
+                clockMinutes = time.minutes;
+                clockMinutes = (clockMinutes < 10) ? `0${clockMinutes}` : clockMinutes;
+            } else {
+                clockMinutes = '00';
+            }
+            if (time.seconds){
+                clockSeconds = time.seconds;
+                clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
+            }
+            
+            userTime = time.seconds ? 
+                (<div className='time'>
+                    <p>Your completion time: {clockMinutes}:{clockSeconds}</p>
+                </div>)
+                : 
+                null;
         }
-        if (time.seconds){
-            clockSeconds = time.seconds;
-            clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
-        }
-        
-        const userTime = time.seconds ? 
-            (<div className='time'>
-                <p>Your completion time: {clockMinutes}:{clockSeconds}</p>
-            </div>)
-            : 
-            null;
+
 
             return(
             <div className='post-form'>
@@ -86,4 +97,4 @@ class PostForm extends React.Component{
     }
 }
 
-export default PostForm;
+export default withRouter(PostForm);
