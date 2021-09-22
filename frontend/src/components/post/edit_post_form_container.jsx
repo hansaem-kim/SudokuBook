@@ -12,9 +12,12 @@ const mSTP = (state) => {
             }
         })
     }else{
-        currentPost = state.entities.posts[state.ui.idFinder];
+        for (const property in state.entities.posts) {
+            if (state.entities.posts[property]._id === state.ui.idFinder){
+                currentPost = state.entities.posts[property];
+            }
+        }
     }
-
     return {
         currentUser: state.session.user,
         formType: 'Edit Post',
