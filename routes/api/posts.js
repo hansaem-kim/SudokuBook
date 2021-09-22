@@ -34,7 +34,8 @@ router.post('/',
         const newPost = new Post({
             text: req.body.text,
             user: req.user.id,
-            puzzle: req.body.puzzle //?
+            puzzle: req.body.puzzle,
+            time: req.body.time
         });
 
         newPost.save()

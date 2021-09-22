@@ -5,6 +5,7 @@ import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import CreatePostForm from '../post/create_post_form_container';
 import EditPostForm from '../post/edit_post_form_container';
+import EndGameModalContainer from '../game/end_game_modal_container';
 
 const Modal = ({ modal, closeModal }) => {
     if (!modal) return null;
@@ -22,6 +23,9 @@ const Modal = ({ modal, closeModal }) => {
             break;
         case 'editPost':
             component = <EditPostForm />;
+            break;
+        case 'endGame':
+            component = <EndGameModalContainer />;
             break;
         default:
             return null;

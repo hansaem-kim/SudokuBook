@@ -20,6 +20,10 @@ const PostSchema = new Schema({
     puzzle: {
         type: Schema.Types.ObjectId,
         ref: 'sudoku'
+    },
+
+    time: {
+        type: Object
     }
 });
 
