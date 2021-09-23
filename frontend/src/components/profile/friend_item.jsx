@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { follow, unfollow } from '../../actions/follow_actions';
+import { Link } from 'react-router-dom'
 
 class FriendItem extends React.Component {
     constructor(props){
@@ -29,10 +30,10 @@ class FriendItem extends React.Component {
     }
 
     render(){
-        const { user } = this.props;
+        const { user, currentUser } = this.props;
         return(
             <div className="pf-user">
-                <h2>{user.username}</h2>
+                <Link className="user-link" to={`/${user._id}`}>{user.username}</Link>
                 <button className={this.state.following ? " follow-button unfollow" : "follow-button follow"} onClick={this.handleFollow}>{this.state.following ? "UnFollow" : "Follow"}</button>
             </div>
         )

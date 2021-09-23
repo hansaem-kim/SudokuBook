@@ -29,14 +29,17 @@ class Profile extends React.Component {
         })
         
       })
-
+      if (items.length === 0){
+        let item = <h3>You dont follow anyone</h3>
+        items.push(item);
+      }
       
 
 
 
       return (
         <div className="profile-page">
-          <h1>Your profile page</h1>
+          <h1>Welcome to your profile page, {currentUser.username}</h1>
           <div className="posts-friends">
             <div className="posts">
               {posts.map(post => {

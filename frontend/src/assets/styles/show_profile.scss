@@ -8,6 +8,8 @@
         font-size: 2.5rem;
         color: white;
         letter-spacing: 5px;
+        margin-top: 50px;
+        margin-bottom: 20px;
     }
 }
 
@@ -48,13 +50,41 @@
     .friends{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        margin-top: 20px;
+        border-top: 3px solid white;
+
+        color: white;
+
+        h3{
+            padding-left: 10px;
+            padding-top: 10px;
+            border-left: 3px solid white;
+        }
+        
         .pf-user{
             display: flex;
             align-items: center;
+            
+            border-left: 3px solid white;
+            padding-left: 10px;
+            padding-top: 10px;
+
+            .user-link{
+                text-decoration: none;
+                color: white;
+
+                padding: 10px;
+                &:hover{
+                    background-color: rgba(211, 211, 211, 0.3);
+                }
+                border-radius: 10px;
+            }
+
+            
 
             button{
                 font-size: 12px;
+                margin-bottom: 10px;
             }
         }
     }
