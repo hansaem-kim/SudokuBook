@@ -109,6 +109,7 @@
     color: rgb(99, 99, 99);
     &:hover {
         color: lightgray;
+        transition: 200ms;
     }
 }
 
@@ -119,10 +120,20 @@
     width: 100%;
     background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
     color: white;
-    text-align: center;
 }
 
 .footer-content {
-    margin: 10px 0;
+    display: flex;
+    justify-content: end;
+    margin: 10px 30px;
     letter-spacing: 3px;
+    font-size: 1.5rem;
+}
+
+.footer-content-links a {
+    color: lightgray;
+    &:hover {
+        color: white;
+        transition: 200ms;
+    }
 }

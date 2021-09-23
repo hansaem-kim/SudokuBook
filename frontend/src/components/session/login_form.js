@@ -57,7 +57,9 @@ class LoginForm extends React.Component {
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit}>
-                    <span onClick={this.props.closeModal} className="close-x">X</span>
+                    <span onClick={this.props.closeModal} className="close-x">
+                        <i className="fas fa-times"></i>
+                    </span>
                     <div className="login-form">
                         <br />
                         <input type="text"
