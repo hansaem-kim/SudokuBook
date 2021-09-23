@@ -1,3 +1,34 @@
-.covered-board {
-    display: none;
+.sudoku-show-container{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid red;
+    margin-top: 30px;
+}
+
+.board-container {
+    border: 1px solid green;
+}
+
+.leaderboard {
+    border: 1px solid purple;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 1em;
+    background: linear-gradient(135deg, #6700cf 0%, #5900b3 100%);
+
+    h1 {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    .leaderboard-list {
+        border: 1px solid white;
+        border-radius: 4px;
+        
+        li {
+            margin: 1em;
+        }
+    }
 }

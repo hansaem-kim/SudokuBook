@@ -1,5 +1,7 @@
 import React from 'react';
-import Board from '../game/board'
+import Board from '../game/board';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCrown} from '@fortawesome/free-solid-svg-icons';
 
 class SudokuShow extends React.Component {
     constructor(props){
@@ -65,17 +67,14 @@ class SudokuShow extends React.Component {
         }
 
         let sortedScores = sudoku.scores.sort(compare);
-
-
-
-        const sudokuScores = sudoku.scores.length !== 0 ? sortedScores.map(score => {
+        const sudokuScores = sudoku.scores.length !== 0 ? sortedScores.map((score, i) => {
             
             let clockMinutes = score.time.minutes;
             let clockSeconds = score.time.seconds;
             clockMinutes = (clockMinutes < 10) ? `0${clockMinutes}` : clockMinutes;
             clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
 
-            return <li>{score.user.username} - {clockMinutes}:{clockSeconds}</li> 
+            return <li key={i}>{i+1}. {score.user.username} - {clockMinutes}:{clockSeconds}</li> 
         }) : null
 
         const board = this.state.showboard ?                     
@@ -91,23 +90,23 @@ class SudokuShow extends React.Component {
                                                 updateSudoku={this.props.updateSudoku}
                                             /> : null;
 
-        const coverButton = !this.state.showboard ? (
+        const startButton = !this.state.showboard ? (
             <button onClick={this.startGame}>Start Game</button>  
             ) : null;
 
         return (
-            <div>
-                <p>HI!</p>
-                {coverButton}
+            <div className='sudoku-show-container'>
+                {startButton}
 
                 <div className='board-container'>
                     {board}
                 </div>
 
                 <div className='leaderboard'>
-                    <ul>
+                    <h1>Leaderboard <FontAwesomeIcon icon={faCrown}/></h1>
+                    <ol className='leaderboard-list'>
                         {sudokuScores}
-                    </ul>
+                    </ol>
                 </div>
             </div>
 
