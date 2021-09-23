@@ -26,12 +26,17 @@ class PostIndexItem extends React.Component {
 
 
     render(){
+        let index;
+
+        if (this.props.users) {
+            index = Object.values(this.props.users).findIndex(el => el._id === this.props.post.user)
+        }
         let username;
         let user;
 
-        if (this.props.users[this.props.post.user]){
-            user = this.props.users[this.props.post.user];
-            username = this.props.users[this.props.post.user].username;
+        if (this.props.users[index]){
+            user = this.props.users[index];
+            username = this.props.users[index].username;
         } else {
             user= null;
             username = null;
@@ -46,7 +51,7 @@ class PostIndexItem extends React.Component {
         )
 
         let dropdown;
-        if (this.props.currentUser.id == this.props.post.user){
+        if (this.props.currentUser.id == index){
             dropdown = (
                 <button className='dropdown' onFocus={this.dropShow} onBlur={this.dropHide}>
                     <i className="fas fa-ellipsis-h"></i>
@@ -80,7 +85,7 @@ class PostIndexItem extends React.Component {
             }
             userTime = time.seconds ? 
                 (<div className='time'>
-                    <p><i class="fas fa-stopwatch"></i>  {username}'s completion time: <span>{clockMinutes}:{clockSeconds}</span></p>
+                    <p><i className="fas fa-stopwatch"></i>  {username}'s completion time: <span>{clockMinutes}:{clockSeconds}</span></p>
                 </div>)
                 :
                 null;
