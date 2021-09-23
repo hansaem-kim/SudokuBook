@@ -88,7 +88,7 @@ class PostForm extends React.Component{
                         </div>
                         
                         <footer>
-                            <input type="submit" value="Post" />
+                            <input className="post-btn" type="submit" value="Post" />
                         </footer>
                     </form>
                 </div>

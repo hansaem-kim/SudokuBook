@@ -105,9 +105,9 @@
         font-size: 1.4rem;
     }
     
-    .close-btn {
+    .close-x {
         position: relative;
-        bottom: 70px;
+        top: -90px;
         left: 190px;
     }
 
@@ -125,15 +125,15 @@
         }
     }
 
-    .post-submit-btn{
-        margin-top: 10px;
+    .post-btn{
+        margin-top: 0px !important;
         height: 40px;
         width: 70px;
         font-size: 1.1rem;
         background-image: linear-gradient(to right, #86A8E7 0%, #91EAE4 100%);
         border: none;
         border-radius: 6px;
-        color: whitesmoke;
+        color: whitesmoke !important;
         cursor: pointer;
         transition: 0.5s;
         display: inline-block;
@@ -141,7 +141,7 @@
     }
 
     
-    button:after {
+    .post-btn:after {
         color: white;
         content: '»';
         position: absolute;
@@ -151,12 +151,12 @@
         transition: 0.5s;
     }
       
-    button:hover{
+    .post-btn:hover{
         padding-right: 20px;
         padding-left:9px;
     }
 
-    button:hover:after {
+    .post-btn:hover:after {
         opacity: 1;
         right: 5px;
     }
