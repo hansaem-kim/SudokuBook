@@ -24,11 +24,11 @@ class PostForm extends React.Component{
         this.setState({time: this.props.time, puzzle: this.props.sudokuId}, () => 
         this.props.action(this.state)
             .then(this.props.closeModal)
-            .then(()=> this.props.updateSudoku(
+            .then(()=> {if (this.props.time) this.props.updateSudoku(
                 {"time": { minutes: this.props.time.minutes, seconds: this.props.time.seconds },
                  "user": this.props.currentUser,
-                "id":this.props.sudokuId})
-            .then(()=> this.props.history.push('/feed')))
+                "id":this.props.sudokuId})})
+            .then(()=> this.props.history.push('/feed'))
         );
     }
 
