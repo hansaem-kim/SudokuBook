@@ -13,9 +13,6 @@ class PostIndexItem extends React.Component {
         this.dropHide = this.dropHide.bind(this);
     }
 
-    componentDidMount(){
-        this.props.fetchUser(this.props.post.user);
-    }
 
     dropShow() {
         this.setState({show: true})
