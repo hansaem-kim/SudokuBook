@@ -1,14 +1,14 @@
 .show-page, .profile-page{
     background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
-    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
     h1 {
         font-size: 2.5rem;
         color: white;
         letter-spacing: 5px;
-        margin-top: 50px;
+        margin-top: 100px;
         margin-bottom: 20px;
     }
 }
