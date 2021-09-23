@@ -26,7 +26,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width:300px;
+    width:400px;
     text-align: center;
     border-radius: 5px;
     background-color: lightgray;
@@ -51,7 +51,7 @@
     &::placeholder {
         color: rgb(85, 85, 85);
     }
-    &:hover {
+    &:hover, &:focus {
         background-color: rgba(0, 0, 0, 0.2);
         color: white;
         transition: 200ms;
@@ -82,4 +82,36 @@
     color: white;
     font-weight: 900;
     font-size: 14px;
+}
+
+.modal-child h1 {
+    font-size: 2rem;
+    color: rgb(85, 85, 85);
+    margin: 15px;
+}
+
+.modal-child textarea {
+    width: 220px;
+    height: 150px;
+    max-height: 300px;
+    resize: vertical;
+    font-family: 'Roboto', sans-serif;
+    background-color: lightgray;
+    font-size: 1.2rem;
+    outline: none;
+    color: rgb(85, 85, 85);
+    letter-spacing: 1px;
+    &::placeholder {
+        color: black;
+        letter-spacing: 1px;
+        color: rgb(85, 85, 85);
+    }
+    &:hover {
+        background-color: rgba(146, 146, 146, 0.2);
+        transition: 200ms;
+    }
+    &:focus {
+        background-color: rgba(146, 146, 146, 0.2);
+        transition: 200ms;
+    }
 }

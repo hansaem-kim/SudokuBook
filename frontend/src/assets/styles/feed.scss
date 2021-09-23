@@ -8,6 +8,7 @@
         font-size: 2.5rem;
         color: white;
         letter-spacing: 5px;
+        padding-top: 1.9em;
     }
 }
 
@@ -24,6 +25,7 @@
     cursor: pointer;
     &:hover {
         background-color: rgba(211, 211, 211, 0.2);
+        transition: 200ms;
     }
 }
 
@@ -31,7 +33,7 @@
     margin: 10px;
     border-radius: 10px;
     width: 30vw;
-    height: 15vh;
+    height: fit-content;
     padding: 10px;
     background-color: rgba(211, 211, 211, 0.3);
     color:white;
@@ -42,6 +44,9 @@
 
     header{
         display: flex;
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
+        border-image-slice: 1;
 
         .author-name-div {
             font-weight: bold;
@@ -50,8 +55,8 @@
         }
 
         .dropdown {
-            position: relative;
-            left: 450px;
+            cursor: pointer;
+            margin-left: auto;
             height: 20px;
             border-radius: 50%;
             background-color: transparent;
@@ -66,9 +71,8 @@
             color: black;
             display: block;
             position: absolute;
-            top: 20px;
-            right: 0px;
-            background-color: rgba(255, 255, 255, 0.5);
+            margin-top: 5px;
+            background-color: rgba(255, 255, 255, 0.6);
             border-radius: 8px;
             border: 1px solid gray;
             width: 100px;
@@ -98,6 +102,20 @@
     span {
         font-weight: bold;
     }
+
+    .time {
+        p {
+            font-size: 0.9rem;
+            color: limegreen;
+        }
+    } 
+
+    >p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #000046;
+        margin-bottom: 10px;
+    }
 }
 
 .playSudokuButton {
@@ -115,9 +133,6 @@
     padding: 2px 5px;
     border-radius: 10px;
     cursor: pointer;
-
-
-
     &:hover {
         background-color: rgba(211, 211, 211, 0.7);
     }

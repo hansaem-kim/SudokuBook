@@ -83,7 +83,7 @@ class PostIndexItem extends React.Component {
             }
             userTime = time.seconds ? 
                 (<div className='time'>
-                    <p>{username}'s completion time: <span>{clockMinutes}:{clockSeconds}</span></p>
+                    <p><i class="fas fa-stopwatch"></i>  {username}'s completion time: <span>{clockMinutes}:{clockSeconds}</span></p>
                 </div>)
                 :
                 null;

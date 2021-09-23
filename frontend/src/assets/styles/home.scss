@@ -1,0 +1,47 @@
+.home-page-wrapper {
+    background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
+    height: 85vh;
+    color: white;
+}
+
+.home-page-content {
+    letter-spacing: 2px;
+    padding-top: 70px;
+}
+.home-page-wrapper h1 {
+    margin-top: 70px;
+    margin-left: 70px;
+    font-size: 5rem;
+    
+}
+.home-page-wrapper p {
+    margin-top: 20px;
+    margin-left: 300px;
+    font-size: 2rem;
+    display: inline-block;
+}
+
+.home-page-wrapper button {
+    margin: 0px 10px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem;
+    background: none;
+    border: 1px solid white;
+    letter-spacing: 3px;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+        animation: shake 0.7s;
+        background-color: rgba(211, 211, 211, 0.2);
+        color: lightgray;
+        transition: 200ms;
+    }
+}
+
+@keyframes shake {
+    20%, 80% { transform: translate3d(0px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+    40%, 60% { transform: translate3d(3px, 0, 0); }
+}

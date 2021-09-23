@@ -6,7 +6,11 @@ const Footer = props => {
     return (
         <div className="footer">
             <div className="footer-content">
-                <p>SudokuBook</p>
+                <div className="footer-content-links">
+                    <a href="https://github.com/hansaem-kim/SudokuBook" target="_blank">
+                        <i className="fab fa-github"></i>
+                    </a>
+                </div>
             </div>
         </div>
     );
