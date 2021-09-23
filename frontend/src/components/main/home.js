@@ -22,6 +22,8 @@ class Home extends React.Component {
         e.preventDefault();
     }
 
+    
+
     generateRandom() {
         this.setState({
             value: Math.floor(Math.random() * (13 + 1) ),
