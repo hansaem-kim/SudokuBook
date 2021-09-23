@@ -1,10 +1,10 @@
 .sudoku-show-container{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    height: 90vh;
 
-    margin-top: 5px;
     padding: 0px 20px;
+    background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
 
     .start-game-button-div {
         position: relative;
@@ -56,19 +56,19 @@
 .leaderboard {
     position: fixed;
     right: 10vw;
-    top: 20vh;
+    top: 30vh;
     border: 1x solid gold;
     color: whitesmoke;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
     padding: 1em;
-    background: linear-gradient(135deg, #667db6 0%, #0082c8 100%);
+    background: linear-gradient(135deg, #8360c3 0%, #0082c8 100%);
 
     h1 {
         font-size: 2em;
         font-weight: bold;
-        margin-bottom: 3px;
+        margin-bottom: 10px;
     }
 
     .leaderboard-list {
@@ -79,4 +79,92 @@
             margin: 1em;
         }
     }
+}
+
+
+.end-game-modal-div {
+    height: 300px;
+    width: 400px;
+    border: 7px solid transparent;
+    border-image: linear-gradient(to right, #5386e6 0%, #91EAE4 100%);
+    border-image-slice: 1;
+    background-color: white;
+    color: #2193b0;
+    padding: 10px;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 3px solid transparent;
+        border-image: linear-gradient(to right, #5386e6 0%, #91EAE4 100%);
+        border-image-slice: 1;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    .close-btn {
+        position: relative;
+        bottom: 70px;
+        left: 190px;
+    }
+
+    .post-textarea-div {
+        margin: 10px 0px;
+
+        textarea{
+            resize: none;
+            height: 100px;
+            width: 270px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(to right, #5386e6 0%, #91EAE4 100%);
+            border-image-slice: 1;
+            padding: 5px;
+        }
+    }
+
+    .post-submit-btn{
+        margin-top: 10px;
+        height: 40px;
+        width: 70px;
+        font-size: 1.1rem;
+        background-image: linear-gradient(to right, #86A8E7 0%, #91EAE4 100%);
+        border: none;
+        border-radius: 6px;
+        color: whitesmoke;
+        cursor: pointer;
+        transition: 0.5s;
+        display: inline-block;
+        position: relative;
+    }
+
+    
+    button:after {
+        color: white;
+        content: '»';
+        position: absolute;
+        opacity: 0;  
+        top: 10px;
+        right: -10px;
+        transition: 0.5s;
+    }
+      
+    button:hover{
+        padding-right: 20px;
+        padding-left:9px;
+    }
+
+    button:hover:after {
+        opacity: 1;
+        right: 5px;
+    }
+
+
+
+}
+
+.end-game-modal-div > .post-form > header > .form-type > h1 {
+    display: none;
 }

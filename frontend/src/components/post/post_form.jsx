@@ -81,10 +81,12 @@ class PostForm extends React.Component{
 
                 <div className='post-form-content'>
                     <form id='post-form-body' onSubmit={this.handleSubmit}>
+                        {userTime}
+                        
                         <div className='post-textarea-div'>
                             <textarea className='post-textarea' placeholder="How was the game?" value={this.state.text} onChange={this.update("text")}/>
                         </div>
-                        {userTime}
+                        
                         <footer>
                             <button className='post-submit-btn'>Post</button>
                         </footer>
