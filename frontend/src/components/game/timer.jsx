@@ -18,6 +18,11 @@ class Timer extends React.Component {
         }, 1000);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.secondInterval);
+        clearInterval(this.minuteInterval);
+    }
+
     componentDidUpdate(){
         if (this.state.seconds === 60){
             this.setState({seconds: 0})
@@ -27,6 +32,9 @@ class Timer extends React.Component {
         };
         if (!this.props.timerOn) {
             this.props.receiveTime({ minutes: this.state.minutes, seconds: this.state.seconds });
+            // this.props.currentUser["completion_time"] = {"time": { minutes: this.state.minutes, seconds: this.state.seconds }, "puzzle_id": this.props.sudokuId};
+            // this.props.updateUser({"time": { minutes: this.state.minutes, seconds: this.state.seconds }, "puzzle_id": this.props.sudokuId});
+            // this.props.updateSudoku({"time": { minutes: this.state.minutes, seconds: this.state.seconds }, "user": this.props.currentUser, "id":this.props.sudokuId});
             clearInterval(this.secondInterval);
             clearInterval(this.minuteInterval);
         };
@@ -48,9 +56,10 @@ class Timer extends React.Component {
         clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
         
         return (
-            <div>
+            <div className='timer-div'>
+                <p>Timer</p>
                 <h1>{clockMinutes}:{clockSeconds}</h1>
-                <button onClick={this.stopTimer}>STOP(for testing)</button>
+                {/* <button onClick={this.stopTimer}>STOP(for testing)</button> */}
             </div>
         )
     }

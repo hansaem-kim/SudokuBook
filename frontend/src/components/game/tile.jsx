@@ -14,7 +14,7 @@ class Tile extends React.Component {
 
     render() {
         const inp = this.props.inputTile ? 
-            <input type="text" onChange={this.handleChange}/> 
+            <input type="number" max="9" min="0" step="1" onChange={this.handleChange}/> 
                 : 
             <div className='prefilled'>{this.props.value}</div>;
         

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import PostForm from './post_form';
 import { createPost } from '../../actions/post_actions';
 import { closeModal} from '../../actions/modal_actions';
+import { updateSudoku } from '../../actions/sudoku_actions';
 
 const mSTP = (state) => {
     return {
@@ -18,6 +19,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => ({
     action: (post) => (dispatch(createPost(post))),
     closeModal: () => dispatch(closeModal()),
+    updateSudoku: (data) => dispatch(updateSudoku(data))
 });
 
 export default connect(mSTP,mDTP)(PostForm);

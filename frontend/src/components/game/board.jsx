@@ -92,11 +92,21 @@ class Board extends React.Component {
 
         return (
             <div className='game-container'>
-                <Timer timerOn={this.state.timerOn} receiveTime={this.props.receiveTime}/>
+                <Timer 
+                    timerOn={this.state.timerOn} 
+                    receiveTime={this.props.receiveTime}
+                    sudokuId={this.props.sudokuId}
+                    updateUser={this.props.updateUser}
+                    currentUser={this.props.currentUser}
+                    updateSudoku={this.props.updateSudoku}
+                />
                 <div className='board'>
                     {gameBoard}
                 </div>
-                {endButton}
+                <div className='end-button-div'>
+                    {endButton}
+                </div>
+                
             </div>
         )
     }

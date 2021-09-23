@@ -33,3 +33,20 @@
         transition: 200ms;
     }
 }
+
+.question-mark {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.25em;
+
+    * {
+        color: white;
+        font-size: 2.5em;
+        transition: 200ms;
+
+        &:hover {
+            cursor: pointer;
+            color: #f0f0f0;
+        }
+    }
+}
