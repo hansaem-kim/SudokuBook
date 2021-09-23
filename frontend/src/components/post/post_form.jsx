@@ -46,7 +46,7 @@ class PostForm extends React.Component{
         let clockMinutes = null;
         let clockSeconds = null;
         let userTime = null;
-        if (time){
+        if (time && this.props.location.pathname !== '/feed'){
             if (time.minutes){
                 clockMinutes = time.minutes;
                 clockMinutes = (clockMinutes < 10) ? `0${clockMinutes}` : clockMinutes;
@@ -65,7 +65,6 @@ class PostForm extends React.Component{
                 : 
                 null;
         }
-
 
             return(
             <div className='post-form'>
