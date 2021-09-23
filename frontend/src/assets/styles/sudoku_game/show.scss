@@ -1,13 +1,14 @@
 .sudoku-show-container{
     display: flex;
     justify-content: space-between;
-    height: 90vh;
+    min-height: 90vh;
 
     padding: 0px 20px;
     background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
 
     .start-game-button-div {
         position: relative;
+        height: 200px;
         top: 20vh;
         left: 40vw;
         button{
