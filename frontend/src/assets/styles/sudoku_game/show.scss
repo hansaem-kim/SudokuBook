@@ -1,30 +1,78 @@
 .sudoku-show-container{
     display: flex;
-    justify-content: space-around;
-    border: 1px solid red;
-    margin-top: 30px;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 5px;
+    padding: 0px 20px;
+
+    .start-game-button-div {
+        position: relative;
+        top: 20vh;
+        left: 40vw;
+        button{
+            width: 150px;
+            height: 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            background-image: linear-gradient(to right, #86A8E7 0%, #91EAE4 100%);
+            border: none;
+            border-radius: 6px;
+            color: whitesmoke;
+            cursor: pointer;
+            transition: 0.5s;
+            display: inline-block;
+            position: relative;
+        }
+
+        button:after {
+            color: white;
+            content: '»';
+            position: absolute;
+            opacity: 0;  
+            top: 19px;
+            right: -20px;
+            transition: 0.5s;
+        }
+          
+        button:hover{
+            padding-right: 28px;
+            padding-left:9px;
+        }
+
+        button:hover:after {
+            opacity: 1;
+            right: 10px;
+        }
+    }
 }
 
+
 .board-container {
-    border: 1px solid green;
+    position: relative;
+    left: 20vw;
 }
 
 .leaderboard {
-    border: 1px solid purple;
+    position: fixed;
+    right: 10vw;
+    top: 20vh;
+    border: 1x solid gold;
     color: whitesmoke;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
     padding: 1em;
-    background: linear-gradient(135deg, #6700cf 0%, #5900b3 100%);
+    background: linear-gradient(135deg, #667db6 0%, #0082c8 100%);
 
     h1 {
         font-size: 2em;
         font-weight: bold;
+        margin-bottom: 3px;
     }
 
     .leaderboard-list {
-        border: 1px solid white;
+        border: 2px solid white;
         border-radius: 4px;
         
         li {

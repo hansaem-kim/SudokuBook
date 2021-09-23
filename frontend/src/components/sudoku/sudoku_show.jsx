@@ -91,7 +91,9 @@ class SudokuShow extends React.Component {
                                             /> : null;
 
         const startButton = !this.state.showboard ? (
-            <button onClick={this.startGame}>Start Game</button>  
+            <div className='start-game-button-div'>
+                <button onClick={this.startGame}>Start Game</button>  
+            </div>
             ) : null;
 
         return (

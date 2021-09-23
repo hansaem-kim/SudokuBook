@@ -1,20 +1,113 @@
-.board {
+.game-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    .board {
+        border: 2px solid lightskyblue;
+        display: flex;
+        flex-direction: column;
+
+        > :nth-child(3){
+            border-bottom: 3px solid lightskyblue;
+        }
+
+        > :nth-child(6){
+            border-bottom: 3px solid lightskyblue;
+        }
+    }
+    
+    .end-button-div {
+        margin: 10px 0px;
+        button {
+            font-size: 1.2rem;
+            width: 33vw;
+            height: 5vh;
+            background-image: linear-gradient(to right, #86A8E7 0%, #91EAE4 100%);
+            border: none;
+            border-radius: 5px;
+            color: whitesmoke;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            
+        }
+        button:after {
+            color: white;
+            content: '»';
+            position: absolute;
+            opacity: 0;  
+            top: 7px;
+            right: -50px;
+            transition: 0.2s;
+        }
+          
+        button:hover{
+            padding-right: 35px;
+            padding-left:9px;
+        }
+
+        button:hover:after {
+            opacity: 1;
+            right: 10px;
+        }
+    }
 }
+
 
 .row {
     display: flex;
+    :nth-child(3){
+        border-right: 3px solid lightskyblue;
+    }
+    :nth-child(6){
+        border-right: 3px solid lightskyblue;
+    }
+}
+
+.timer-div {
+    color: limegreen;
+    margin: 10px 0px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, #86A8E7 0%, #91EAE4 100%);
+    border-image-slice: 1;
+    width: 6vw;
+    height: 5.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    
+    p{
+        border-bottom: 2px solid transparent;
+        border-image: linear-gradient(to right, #86A8E7 0%, #91EAE4 100%);
+        border-image-slice: 1;
+        margin-bottom: 5px;
+        padding-bottom: 2px;
+    }
 }
 
 .tile {
     border: 1px solid lightskyblue;
-    height: 5vh;
+    height: 7vh;
+    width: 3.6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 
     * {
-        width: 10vw;
-        height: 95%;
+        margin-top: 1px;
+        width: 3.1vw;
+        height: 90%;
         border: none;
+        text-align: center;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
 
     div {
@@ -22,7 +115,13 @@
         // border: 1px solid black;
     }
 
+
     .prefilled {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: green;
+        font-size: 1.3rem;
+        font-weight: 600;
     }
 }

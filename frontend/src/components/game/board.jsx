@@ -103,7 +103,10 @@ class Board extends React.Component {
                 <div className='board'>
                     {gameBoard}
                 </div>
-                {endButton}
+                <div className='end-button-div'>
+                    {endButton}
+                </div>
+                
             </div>
         )
     }
