@@ -3,7 +3,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(270deg, rgba(44,125,160,1) 0%, rgba(97,165,194,1) 35%, rgba(169,214,229,1) 100%);
+    background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
+    border-bottom: 1px solid rgb(212, 212, 212);
 }
 
 .navbar img {
@@ -19,7 +20,7 @@
     letter-spacing: 3px;
     cursor: pointer;
     &:hover {
-        color: lightgray;
+        color: darkgray;
         transition: 200ms;
     }
 }
@@ -30,15 +31,14 @@
     margin: 10px 50px;
     border: 0;
     border-radius: 5px;
-    background-color: rgba(1, 42, 74, 0.2);
+    background-color: transparent;
     color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     letter-spacing: 3px;
     cursor: pointer;
     &:hover {
-        background-color: rgb(1, 73, 124, 0.5);
-        color: lightgray;
+        color: darkgray;
         transition: 200ms;
     }
 }
@@ -102,11 +102,12 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #012a4a;
+    background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
     color: white;
     text-align: center;
 }
 
 .footer-content {
     margin: 10px 0;
+    letter-spacing: 3px;
 }

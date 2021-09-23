@@ -56,9 +56,10 @@ class Timer extends React.Component {
         clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
         
         return (
-            <div>
+            <div className='timer-div'>
+                <p>Timer</p>
                 <h1>{clockMinutes}:{clockSeconds}</h1>
-                <button onClick={this.stopTimer}>STOP(for testing)</button>
+                {/* <button onClick={this.stopTimer}>STOP(for testing)</button> */}
             </div>
         )
     }

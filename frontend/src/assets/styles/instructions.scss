@@ -1,0 +1,25 @@
+.instructions-container {
+    height: 30em;
+    border-radius: 5px;
+    background-color: rgba(137, 194, 217);
+    color: rgb(235, 235, 235);
+    padding-inline: 2em;
+
+    h1 {
+        padding-top: 2em;
+        font-weight: bolder;
+    }
+
+    p {
+        text-align: start;
+        margin-block: 12px;
+    }
+
+    ul {
+        list-style-type: disc;
+        text-align: start;
+        li {
+            margin-bottom: 10px;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 .main-page-background {
     height: 100vh;
-    background: linear-gradient(90deg, rgba(44,125,160,1) 0%, rgba(97,165,194,1) 35%, rgba(169,214,229,1) 100%);    
+    background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
 }
 
 .main-page-content {
@@ -19,17 +19,34 @@
 .main-page-content button {
     margin-bottom: 10px;
     height: 60px;
-    border: 0.5px solid #468faf;
-    border-radius: 5px;
-    background-color: rgba(1, 42, 74, 0.2);
-    color: rgb(235, 235, 235);
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     letter-spacing: 3px;
     cursor: pointer;
     &:hover {
-        background-color: rgb(1, 73, 124, 0.5);
-        color: lightgray;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: darkgray;
         transition: 200ms;
+    }
+}
+
+.question-mark {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.25em;
+
+    * {
+        color: white;
+        font-size: 2.5em;
+        transition: 200ms;
+
+        &:hover {
+            cursor: pointer;
+            color: #f0f0f0;
+        }
     }
 }
