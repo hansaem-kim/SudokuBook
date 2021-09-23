@@ -1,9 +1,11 @@
 .instructions-container {
-    height: 30em;
+    height: 22em;
     border-radius: 5px;
-    background-color: rgba(137, 194, 217);
-    color: rgb(235, 235, 235);
+    background-color: lightgray;
+    // background-image: linear-gradient(135deg, lightgray, #b8b8b8);
+    color: #4f4f4f;
     padding-inline: 2em;
+    border: 2px solid rgb(85, 85, 85);
 
     h1 {
         padding-top: 2em;
