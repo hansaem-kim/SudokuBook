@@ -1,0 +1,114 @@
+.about-container {
+    padding-top: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.developer-info {
+
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #5386e6;
+    }
+
+    .inner-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        border: 7px solid transparent;
+        border-image: linear-gradient(to right, #5386e6 0%, #91EAE4 100%);
+        border-image-slice: 1;
+
+        >:nth-child(1) > .info-tile{
+            border-top: none;
+        }
+
+        >:nth-child(3) > .info-tile{
+            border-bottom: none;
+        }
+
+        .fact{
+            visibility: hidden;
+            position: absolute;
+            background-color: #91EAE4;
+            top: 20px;
+            right: 50px;
+            height: 100px;
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            color: #3c63ac;
+            padding: 10px;
+        }
+
+        .one-aiden:hover ~ .fact{
+            visibility: visible;
+        }
+        .two-aiden:hover ~ .fact{
+            visibility: visible;
+        }
+        .three-aiden:hover ~ .fact{
+            visibility: visible;
+        }
+        .four-aiden:hover ~ .fact{
+            visibility: visible;
+        }
+        .five-aiden:hover ~ .fact{
+            visibility: visible;
+        }
+
+    }
+
+    .row{
+        display: flex;
+
+        :nth-child(1){
+            border-left: none;
+        }
+
+        :nth-child(3){
+            border-right: none;
+
+        }
+
+    }
+
+    .info-tile {
+        width: 90px;
+        height: 90px;
+        border: 1px solid #5386e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #5386e6;
+
+
+    }
+
+    .fact-tile, .link-tile {
+        span {
+            cursor: pointer;
+        }
+        
+    }
+
+    .profile-pic {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+
+
+}
