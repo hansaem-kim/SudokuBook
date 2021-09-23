@@ -14,9 +14,10 @@
     top: 10px;
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
+    color:darkgray;
     cursor: pointer;
     &:hover {
-        color: lightgray;
+        color: gray;
     }
 }
 
@@ -28,7 +29,7 @@
     width:300px;
     text-align: center;
     border-radius: 5px;
-    background-color: rgba(137, 194, 217, 0.9);
+    background-color: lightgray;
     color: rgb(235, 235, 235);
 }
 
@@ -39,33 +40,39 @@
     margin-bottom: 5px;
     border: none;
     border-radius: 5px;
-    background-color: rgba(70, 143, 175, 0.7);
-    color: rgb(235, 235, 235);
+    background-color: lightgray;
+    color: rgb(85, 85, 85);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     letter-spacing: 3px;
     outline: none;
     text-indent: 10px;
-    border: 0.5px solid #468faf;
+    border: 1px solid rgb(85, 85, 85);
     &::placeholder {
-        color: rgb(219, 219, 219);
+        color: rgb(85, 85, 85);
     }
     &:hover {
-        background-color: rgb(1, 73, 124, 0.5);
-        color: lightgray;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
         transition: 200ms;
+        &::placeholder {
+            color: white;
+            transition: 200ms;
+        }
     }
 }
 
 .modal-child input[type=submit] {
-    background-color: rgba(1, 73, 124, 0.7);
+    background-color: lightgray;
     text-indent: 0px;
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 15px;
-    color: white;
+    color: rgb(85, 85, 85);
     &:hover {
-        background-color: rgba(0, 52, 88, 0.7);
+        background-color: rgba(0, 0, 0, 0.5);
+        color:white;
+        transition: 200ms;
     }
 }
 

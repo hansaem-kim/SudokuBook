@@ -21,6 +21,13 @@ class SignupForm extends React.Component {
     }
     
     componentDidUpdate() {
+        console.log(this.props)
+        if (this.props.isSingedIn) {
+            this.props.login({
+                username: this.state.username,
+                password: this.state.password
+            });
+        }
         if (this.props.loggedIn) {
             this.props.history.push('/home');
             this.props.closeModal();
@@ -43,7 +50,6 @@ class SignupForm extends React.Component {
         };
 
         this.props.signup(user);
-        this.props.login(user);
     }
 
     renderErrors() {
