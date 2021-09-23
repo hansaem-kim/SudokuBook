@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PostIndexItem from '../post/post_index_item'
 
 class UserShow extends React.Component{
     constructor(props){
@@ -26,6 +26,10 @@ class UserShow extends React.Component{
         
     }
 
+
+    componentDidMount(){
+        this.props.fetchPosts();
+    }
     
 
     handleFollow(e){
@@ -68,13 +72,20 @@ class UserShow extends React.Component{
             }
         }
 
-
+        const {posts, currentUser, deletePost} = this.props;
        
         
         return (
             <div>
                 <h1>{user.username}</h1>
                 {button}
+                {posts.map(post=> {
+                    if (post.user == this.props.match.params.userId){
+                        
+                        return <PostIndexItem post={post} currentUser={currentUser}
+                        deletePost={deletePost} key={post._id} />
+                    }
+                })}
             </div>
         )
     }
