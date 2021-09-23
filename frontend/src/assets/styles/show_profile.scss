@@ -1,0 +1,91 @@
+.show-page, .profile-page{
+    background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    h1 {
+        font-size: 2.5rem;
+        color: white;
+        letter-spacing: 5px;
+        margin-top: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+.follow-button{
+    border-radius: 60px;
+    background-color: rgba(211, 211, 211, 0.3);
+    border: 1px solid white;
+    color: white;
+    margin: 10px;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgba(211, 211, 211, 0.7);
+    }
+}
+
+// .follow{
+   
+// }
+
+// .unfollow{
+    
+// }
+
+
+.posts-friends{
+    display: flex;
+
+    justify-content: space-evenly;
+    
+    .friends{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        border-top: 3px solid white;
+
+        color: white;
+
+        h3{
+            padding-left: 10px;
+            padding-top: 10px;
+            border-left: 3px solid white;
+        }
+        
+        .pf-user{
+            display: flex;
+            align-items: center;
+            
+            border-left: 3px solid white;
+            padding-left: 10px;
+            padding-top: 10px;
+
+            .user-link{
+                text-decoration: none;
+                color: white;
+
+                padding: 10px;
+                &:hover{
+                    background-color: rgba(211, 211, 211, 0.3);
+                }
+                border-radius: 10px;
+            }
+
+            
+
+            button{
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

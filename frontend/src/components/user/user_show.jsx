@@ -12,13 +12,12 @@ class UserShow extends React.Component{
         
         this.props.getFollows(this.props.currentUser.id).then(() => {
             
-            
             this.props.follows.forEach(el => {
                 if (el.followee == this.props.match.params.userId){
                     this.setState({
                         following: true
                     })
-                    console.log("inside change")
+                    
                 }
             })
             
@@ -67,7 +66,7 @@ class UserShow extends React.Component{
               
 
                 button = <button 
-                    onClick={this.handleFollow} >{this.state.following ? "UnFollow" : "Follow"}
+                    onClick={this.handleFollow} className={this.state.following ? " follow-button unfollow" : "follow-button follow"} >{this.state.following ? "UnFollow" : "Follow"}
                 </button>;
             }
         }
@@ -76,7 +75,7 @@ class UserShow extends React.Component{
        
         
         return (
-            <div>
+            <div className="show-page">
                 <h1>{user.username}</h1>
                 {button}
                 {posts.map(post=> {
