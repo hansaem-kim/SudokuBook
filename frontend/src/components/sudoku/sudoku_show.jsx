@@ -74,7 +74,7 @@ class SudokuShow extends React.Component {
             clockMinutes = (clockMinutes < 10) ? `0${clockMinutes}` : clockMinutes;
             clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
 
-            return <li key={i}>{i+1}. {score.user.username} - {clockMinutes}:{clockSeconds}</li> 
+            if (i < 5) return <li key={i}>{i+1}. {score.user.username} - {clockMinutes}:{clockSeconds}</li> 
         }) : null
 
         const board = this.state.showboard ?                     

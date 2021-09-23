@@ -8,6 +8,7 @@
         font-size: 2.5rem;
         color: white;
         letter-spacing: 5px;
+        padding-top: 1.9em;
     }
 }
 
@@ -43,6 +44,9 @@
 
     header{
         display: flex;
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
+        border-image-slice: 1;
 
         .author-name-div {
             font-weight: bold;
@@ -51,6 +55,7 @@
         }
 
         .dropdown {
+            cursor: pointer;
             margin-left: auto;
             height: 20px;
             border-radius: 50%;
@@ -96,6 +101,20 @@
     line-height:1.5em;
     span {
         font-weight: bold;
+    }
+
+    .time {
+        p {
+            font-size: 0.9rem;
+            color: limegreen;
+        }
+    } 
+
+    >p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #000046;
+        margin-bottom: 10px;
     }
 }
 
