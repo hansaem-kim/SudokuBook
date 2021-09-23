@@ -51,7 +51,8 @@ class PostIndexItem extends React.Component {
         )
 
         let dropdown;
-        if (this.props.currentUser.id == index){
+
+        if (this.props.currentUser.id == this.props.users[index]._id){
             dropdown = (
                 <button className='dropdown' onFocus={this.dropShow} onBlur={this.dropHide}>
                     <i className="fas fa-ellipsis-h"></i>
@@ -83,12 +84,15 @@ class PostIndexItem extends React.Component {
                 clockSeconds = time.seconds;
                 clockSeconds = (clockSeconds < 10) ? `0${clockSeconds}` : clockSeconds;
             }
-            userTime = time.seconds ? 
+            if (this.props.post.puzzle) {
+                userTime = time.seconds ? 
                 (<div className='time'>
                     <p><i className="fas fa-stopwatch"></i>  {username}'s completion time: <span>{clockMinutes}:{clockSeconds}</span></p>
                 </div>)
                 :
                 null;
+            }
+
         }
 
         let playSudokuButton = null;

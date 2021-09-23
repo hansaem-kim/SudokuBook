@@ -10,20 +10,23 @@ import FooterContainer from './main/footer_container';
 import ProfileContainer from './profile/profile_container';
 import FeedContainer from './feed/feed_container';
 import UserShowContainer from './user/user_show_container';
+import About from './about/about';
 
 const App = () => (
     <div>
         <Modal />
         <NavBarContainer />
         <Switch>
+            <Route exact path='/about' component={About} />
             <Route exact path="/" component={MainPageContainer} />
             <ProtectedRoute exact path="/home" component={HomeContainer} />
             <ProtectedRoute exact path="/profile" component={ProfileContainer} />
             <Route exact path={`/sudokus/:sudokuId`} component={SudokuShowContainer} />
             <ProtectedRoute exact path='/feed' component={FeedContainer} />
             <Route exact path='/:userId' component={UserShowContainer} />
-            
+
         </Switch>
+
         <FooterContainer />
     </div>
 );
