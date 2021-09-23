@@ -71,12 +71,11 @@ class Board extends React.Component {
         const correct = (JSON.stringify(answer) === JSON.stringify(userAnswer))
         this.setState({finished: true})
         this.setState({correct: correct})
-        // this.setState({timerOn: false})
-        // if (correct) {
+        if (correct) {
             this.setState({timerOn: false});
             this.props.receiveAnswer(this.state.gameBoard);
             this.props.openModal('endGame', this.props.sudokuId);
-        // }
+        }
     }
 
     render() {
@@ -84,7 +83,7 @@ class Board extends React.Component {
         const endText = this.state.correct ? 
             <p>'Perfect!'</p> 
                 : 
-            <div><p>'Not quite..'</p><button onClick={this.handleSubmit}>Resubmit</button></div>
+            <div className='wrong-answer-display-div'><p>Not quite..</p><button onClick={this.handleSubmit}>Resubmit</button></div>
         const endButton = !this.state.finished ? 
             <button onClick={this.handleSubmit}>Submit</button>
                 :
