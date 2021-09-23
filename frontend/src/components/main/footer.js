@@ -8,7 +8,7 @@ const Footer = props => {
             <div className="footer-content">
                 <div className="footer-content-links">
                     <a href="https://github.com/hansaem-kim/SudokuBook" target="_blank">
-                        <i class="fab fa-github"></i>
+                        <i className="fab fa-github"></i>
                     </a>
                 </div>
             </div>
