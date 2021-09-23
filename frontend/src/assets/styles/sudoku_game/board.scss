@@ -24,7 +24,7 @@
         button {
             font-size: 1.2rem;
             width: 33vw;
-            height: 5vh;
+            height: 35px;
             background-image: linear-gradient(to right, #86A8E7 0%, #91EAE4 100%);
             border: none;
             border-radius: 5px;
@@ -39,7 +39,7 @@
             content: '»';
             position: absolute;
             opacity: 0;  
-            top: 7px;
+            top: 6px;
             right: -30px;
             transition: 0.2s;
         }
