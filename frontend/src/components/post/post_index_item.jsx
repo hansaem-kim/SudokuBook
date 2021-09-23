@@ -83,7 +83,7 @@ class PostIndexItem extends React.Component {
             }
             userTime = time.seconds ? 
                 (<div className='time'>
-                    <p>{username}'s completion time: {clockMinutes}:{clockSeconds}</p>
+                    <p>{username}'s completion time: <span>{clockMinutes}:{clockSeconds}</span></p>
                 </div>)
                 :
                 null;
@@ -108,7 +108,10 @@ class PostIndexItem extends React.Component {
                 <div className="created-post-body"> 
                     <p>{this.props.post.text}</p>
                     {userTime}
-                    {playSudokuButton}
+                    <div className="playSudokuButton">
+                        {playSudokuButton}
+                    </div>
+                    
                 </div>
 
             </div>
