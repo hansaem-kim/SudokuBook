@@ -3,29 +3,20 @@ import Input from '../input/input'
 // <Input />
 import { withRouter } from 'react-router-dom';
 
-
-
 class Home extends React.Component {
     constructor(props) {
         super(props);
 
         this.handleClick = this.handleClick.bind(this);
-
-        this.props.fetchSudokus();
-        this.state = {
-            value: 0,
-            display: false
-        };
     }
 
+    componentDidMount() {
+        this.props.fetchSudokus();
+
+    }
     handleClick() {
-        this.setState({
-            value: Math.floor(Math.random() * (13 + 1) ),
-            display: true
-        });
         if (this.props.sudokus.data) {
-            const sudoku  = this.props.sudokus.data[this.state.value];
-            console.log(sudoku)
+            const sudoku  = this.props.sudokus.data[Math.floor(Math.random() * (13 + 1) )];
             this.props.history.push(`/sudokus/${sudoku._id}`);
         }
     }
@@ -35,9 +26,8 @@ class Home extends React.Component {
             <div className="home-page-wrapper">
                 <div className="home-page-content">
                     <h1>Ready to play sudoku?</h1>
-                    <p>If you are ready, challenge it 
-                        <button onClick={this.handleClick}>Right Now!</button>
-                    </p>
+                    <p>If you are ready, challenge it</p>
+                    <button onClick={this.handleClick}>Right Now!</button>
                 </div>
             </div>
         );
