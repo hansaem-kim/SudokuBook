@@ -72,7 +72,7 @@ class PostForm extends React.Component{
                 <header>
                     <div className='form-type'>
                         <h1>{this.props.formType}</h1>
-                        <div className='close-btn' onClick={()=> this.props.closeModal()}>
+                        <div className="close-x" onClick={()=> this.props.closeModal()}>
                             <i className="fas fa-times"></i>
                         </div>
                         
@@ -86,7 +86,7 @@ class PostForm extends React.Component{
                         </div>
                         {userTime}
                         <footer>
-                            <button className='post-submit-btn'>Post</button>
+                            <input type="submit" value="Post" />
                         </footer>
                     </form>
                 </div>
