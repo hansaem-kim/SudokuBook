@@ -1,6 +1,9 @@
 import React from 'react';
 import PostIndexItem from '../post/post_index_item';
 import FriendItem from './friend_item';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserFriends} from '@fortawesome/free-solid-svg-icons';
+
 
 class Profile extends React.Component {
     constructor(props) {
@@ -42,6 +45,7 @@ class Profile extends React.Component {
           <h1>Welcome to your profile page, {currentUser.username}</h1>
           <div className="posts-friends">
             <div className="posts">
+              <h2>Your Posts</h2>
               {posts.map(post => {
                 if (post.user == currentUser.id){
                   return <PostIndexItem post={post} currentUser={currentUser}
@@ -49,8 +53,13 @@ class Profile extends React.Component {
                 }
               })}
             </div>
-            <div className="friends">
-              {items}
+            <div className="right" >
+              <div className="purple-part" >
+                <h1>Following <FontAwesomeIcon icon={faUserFriends}/></h1>
+                <div className="friends">
+                  {items}
+                </div>
+              </div>
             </div>
           </div>
         </div>
