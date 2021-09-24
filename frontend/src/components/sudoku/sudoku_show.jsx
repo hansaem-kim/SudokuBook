@@ -65,10 +65,10 @@ class SudokuShow extends React.Component {
                 }
             }
         }
-
+       
         let sortedScores = sudoku.scores.sort(compare);
         const sudokuScores = sudoku.scores.length !== 0 ? sortedScores.map((score, i) => {
-            
+   
             let clockMinutes = score.time.minutes;
             let clockSeconds = score.time.seconds;
             clockMinutes = (clockMinutes < 10) ? `0${clockMinutes}` : clockMinutes;
