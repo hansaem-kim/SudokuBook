@@ -1,6 +1,26 @@
 .about-container {
-    padding-top: 200px;
+    padding-top: 150px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    >h1{
+        font-size: 3.2rem;
+        font-weight: 600;
+        color: #8360c3;
+        margin-bottom: 50px;
+        padding-bottom: 5px;
+        border-bottom: 5px solid transparent;
+        border-image: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
+        border-image-slice: 1;
+        
+
+    }
+}
+
+.developers-container {
+    display: flex;
+    width: 100vw;
     justify-content: space-around;
     align-items: center;
 }
@@ -31,6 +51,10 @@
         border-image: linear-gradient(to right, #5386e6 0%, #91EAE4 100%);
         border-image-slice: 1;
 
+        a, a:visited, a:hover, a:active {
+            color: inherit;
+        }
+
         >:nth-child(1) > .info-tile{
             border-top: none;
         }
@@ -43,14 +67,18 @@
             visibility: hidden;
             position: absolute;
             background-color: #91EAE4;
-            top: 20px;
-            right: 50px;
-            height: 100px;
-            width: 150px;
+            top: 10px;
+            right: 25px;
+            height: 70px;
+            width: 200px;
             border-radius: 5px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             color: #3c63ac;
             padding: 10px;
+            p {
+                text-align: center;
+                line-height: 25px;
+            }
         }
 
         .one-aiden:hover ~ .fact{
