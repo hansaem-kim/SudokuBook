@@ -18,7 +18,7 @@ class About extends React.Component{
                         <div className="inner-div">
                             <div className='row'>
                                 <div className='info-tile link-tile'><a target="_blank" rel="noopener noreferrer" href="https://github.com/skylineciel"><span className='github'><i class="fab fa-github fa-3x"></i></span></a></div>
-                                <div className='info-tile link-tile'><span className='linkedin'><i class="fab fa-linkedin fa-3x"></i></span></div>
+                                <div className='info-tile link-tile'><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/aiden-jang-50bb9914b/"><span className='linkedin'><i class="fab fa-linkedin fa-3x"></i></span></a></div>
                                 <div className='info-tile link-tile'><span className='personal'><i class="fas fa-user-circle fa-3x"></i></span></div>
                             </div>
                             <div className='row'>
@@ -37,17 +37,17 @@ class About extends React.Component{
                             <div className='row'>
                                 <div className='info-tile fact-tile'><span className='three-aiden'><i class="fas fa-question-circle fa-3x"></i></span>
                                     <div className='fact hide'>
-                                        <p>Aiden is the frontend God3!</p>
+                                        <p>Aiden has a background in computer engineering.</p>
                                     </div>
                                 </div>
                                 <div className='info-tile fact-tile'><span className='four-aiden'><i class="fas fa-question-circle fa-3x"></i></span>
                                     <div className='fact hide'>
-                                        <p>Aiden is the frontend God4!</p>
+                                        <p>Aiden is a full stack developer who loves to build useful applications.</p>
                                     </div>
                                 </div>
                                 <div className='info-tile fact-tile'><span className='five-aiden'><i class="fas fa-question-circle fa-3x"></i></span>
                                     <div className='fact hide'>
-                                        <p>Aiden is the frontend God5!</p>
+                                        <p>Aiden's favorite logic game is Rush Hour.</p>
                                     </div>
                                 </div>
                             </div>
