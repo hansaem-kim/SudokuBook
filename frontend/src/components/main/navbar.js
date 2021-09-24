@@ -26,6 +26,8 @@ class NavBar extends React.Component {
                 <div className="navbar-user">
                     <Link className="navbar-user-link to-feed" to={'/feed'}>Feed</ Link> 
                     <Link className="navbar-user-link" to={'/profile'}>Profile</Link>
+                    <Link className="navbar-user-link" to={'/about'}>About</Link>
+                    
                     <button onClick={this.logoutUser}>Logout</button>
                 </div>
             </div>
