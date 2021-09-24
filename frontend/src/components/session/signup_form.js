@@ -71,7 +71,7 @@ class SignupForm extends React.Component {
                     <span onClick={this.props.closeModal} className="close-x">
                         <i className="fas fa-times"></i>
                     </span>
-
+                    <h1>Sign Up</h1>
                     <div className="signup-form">
                         <br />
                         <input type="text"

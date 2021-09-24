@@ -60,6 +60,7 @@ class LoginForm extends React.Component {
                     <span onClick={this.props.closeModal} className="close-x">
                         <i className="fas fa-times"></i>
                     </span>
+                    <h1>Log In</h1>
                     <div className="login-form">
                         <br />
                         <input type="text"
