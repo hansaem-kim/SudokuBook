@@ -127,12 +127,13 @@
 .footer-content {
     display: flex;
     justify-content: end;
-    margin: 10px 30px;
-    letter-spacing: 3px;
-    font-size: 1.5rem;
+    margin: 10px 5px;
+    font-size: 2rem;
 }
 
-.footer-content-links a {
+.footer-content-links * {
+    cursor: pointer;
+    margin-right: 15px;
     color: lightgray;
     &:hover {
         color: white;
