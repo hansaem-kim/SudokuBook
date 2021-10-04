@@ -11,6 +11,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this); 
     }
 
     componentDidMount() {
@@ -41,6 +42,16 @@ class LoginForm extends React.Component {
         this.props.login(user);
     }
 
+    handleDemo(e) {
+        e.preventDefault();
+
+        let user = {
+            username: 'demo',
+            password: 'password'
+        };
+        this.props.login(user);
+    }
+
     renderErrors() {
         return (
             <ul>
@@ -60,6 +71,7 @@ class LoginForm extends React.Component {
                     <span onClick={this.props.closeModal} className="close-x">
                         <i className="fas fa-times"></i>
                     </span>
+                    <h1>Log In</h1>
                     <div className="login-form">
                         <br />
                         <input type="text"
@@ -75,6 +87,9 @@ class LoginForm extends React.Component {
                         />
                         <br />
                         <input type="submit" value="Submit" />
+                        <br />
+                        <input type="submit" value="Log In as Demo" onClick={this.handleDemo} /> 
+
                         {this.renderErrors()}
                     </div>
                 </form>
