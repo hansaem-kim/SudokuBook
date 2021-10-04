@@ -20,7 +20,7 @@ This application was developed using the following technologies:
 
 # How to
 SudokuBook is simple to use and mirrors any other social media application. 
-1. Sign up or log in 
+1. Sign up or log in (feel free to use the demo user account)
 2. Play a random puzzle from the home page or scroll through the social feed to accept another user's challenge
 3. Fill out a puzzle and keep an eye on the timer
 4. Post your completion time with a message to challenge others
