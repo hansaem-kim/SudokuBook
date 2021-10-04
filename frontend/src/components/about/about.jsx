@@ -17,7 +17,7 @@ class About extends React.Component{
                         <h1>Aiden Chang</h1>
                         <div className="inner-div">
                             <div className='row'>
-                                <div className='info-tile link-tile'><a target="_blank" rel="noopener noreferrer" href="https://github.com/skylineciel"><span className='github'><i class="fab fa-github fa-3x"></i></span></a></div>
+                                <div className='info-tile link-tile'><a target="_blank" rel="noopener noreferrer" href="https://github.com/aiden-jang"><span className='github'><i class="fab fa-github fa-3x"></i></span></a></div>
                                 <div className='info-tile link-tile'><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/aidenjang"><span className='linkedin'><i class="fab fa-linkedin fa-3x"></i></span></a></div>
                                 <div className='info-tile link-tile'><span className='personal'><i class="fas fa-user-circle fa-3x"></i></span></div>
                             </div>
