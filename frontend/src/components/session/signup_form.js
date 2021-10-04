@@ -14,6 +14,7 @@ class SignupForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this); 
     } 
 
     componentDidMount() {
@@ -50,6 +51,16 @@ class SignupForm extends React.Component {
         };
 
         this.props.signup(user);
+    }
+
+    handleDemo(e) {
+        e.preventDefault();
+
+        let user = {
+            username: 'demo',
+            password: 'password'
+        };
+        this.props.login(user);
     }
 
     renderErrors() {
@@ -105,6 +116,8 @@ class SignupForm extends React.Component {
                         />
                         <br />
                         <input type="submit" value="Submit" />
+                        <br />
+                        <input type="submit" value="Log In as Demo" onClick={this.handleDemo} /> 
                         {this.renderErrors()}
                     </div>
                 </form>
