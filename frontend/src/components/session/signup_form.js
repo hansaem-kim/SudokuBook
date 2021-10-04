@@ -22,7 +22,7 @@ class SignupForm extends React.Component {
     }
     
     componentDidUpdate() {
-        console.log(this.props)
+        // console.log(this.props)
         if (this.props.isSingedIn) {
             this.props.login({
                 username: this.state.username,

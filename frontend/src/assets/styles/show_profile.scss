@@ -14,6 +14,14 @@
         margin-top: 100px;
         margin-bottom: 20px;
     }
+
+    h4 {
+        font-size: 1.5rem;
+        color: white;
+        letter-spacing: 1px;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
 }
 
 
@@ -119,6 +127,10 @@
         padding: 1em;
         
         background: linear-gradient(135deg, #8360c3 0%, #0082c8 100%);
+
+        h1 {
+            letter-spacing: 2px;
+        }
     }
     
 

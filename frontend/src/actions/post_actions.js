@@ -28,25 +28,25 @@ export const removePost = postId => ({
 export const fetchPosts = () => dispatch => (
     Util.getPosts()
         .then(posts => dispatch(receivePosts(posts)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const fetchUserPosts = id => dispatch => (
     Util.getUserPosts(id)
         .then(posts => dispatch(receiveUserPosts(posts)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const createPost = post => dispatch => (
     Util.createPost(post)
         .then(post => dispatch(receiveNewPost(post)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const updatePost = post => dispatch => (
     Util.updatePost(post)
         .then(post => dispatch(receiveNewPost(post)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const deletePost = id  => dispatch => (

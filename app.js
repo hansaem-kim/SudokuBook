@@ -21,8 +21,8 @@ if (process.env.NODE_ENV === 'production') {
 
 mongoose
     .connect(db, { useNewUrlParser: true })
-    .then(() => console.log("Connected to mongoDB"))
-    .catch(err => console.log(err));
+    // .then(() => console.log("Connected to mongoDB"))
+    // .catch(err => console.log(err));
 
 
 app.use(passport.initialize());

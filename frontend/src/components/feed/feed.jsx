@@ -19,11 +19,11 @@ class Feed extends React.Component{
                     </header>
                     
                     <ul>
-                        <li><a href="https://www.sudokuessentials.com/sudoku_rules.html">1. Basic Sudoku Rules</a></li>
-                        <li><a href="https://www.sudokuessentials.com/sudoku_tips.html">2. Basic Sudoku Tip</a></li>
-                        <li><a href="https://www.sudokuessentials.com/x-wing.html">3. Sudoku X-Wing</a></li>
-                        <li><a href="https://www.sudokuessentials.com/Sudoku-XY-Wing.html">4. Sudoku XY-Wing</a></li>
-                        <li><a href="https://www.sudokuessentials.com/Sudoku_Swordfish.html">5. Swordfish Pattern</a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.sudokuessentials.com/sudoku_rules.html">1. Basic Sudoku Rules</a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.sudokuessentials.com/sudoku_tips.html">2. Basic Sudoku Tip</a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.sudokuessentials.com/x-wing.html">3. Sudoku X-Wing</a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.sudokuessentials.com/Sudoku-XY-Wing.html">4. Sudoku XY-Wing</a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.sudokuessentials.com/Sudoku_Swordfish.html">5. Swordfish Pattern</a></li>
 
                     </ul>
                 </div>
