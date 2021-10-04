@@ -40,13 +40,14 @@
     margin-top: 0.25em;
 
     * {
-        color: white;
+        color: lightgray;
         font-size: 2.5em;
         transition: 200ms;
 
         &:hover {
             cursor: pointer;
-            color: #f0f0f0;
+            color: white;
+            transition: 200ms;
         }
     }
 }
