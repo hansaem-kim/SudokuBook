@@ -16,18 +16,18 @@ export const receiveUsers = users => ({
 export const fetchUser = (id) => dispatch => (
     Util.getUser(id)
         .then(user => dispatch(receiveUser(user)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const updateUser = (user) => dispatch => (
     Util.updateUser(user)
         .then(user => dispatch(receiveUser(user)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 
 export const fetchUsers = () => dispatch => (
     Util.getUsers()
         .then(users => dispatch(receiveUsers(users)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );

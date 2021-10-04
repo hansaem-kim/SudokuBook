@@ -28,17 +28,17 @@ export const receiveTime = time => ({
 export const fetchSudokus = () => dispatch => (
     getSudokus()
         .then(sudokus => dispatch(receiveSudokus(sudokus)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const fetchSudoku = id => dispatch => (
     getSudoku(id)
         .then(sudoku => dispatch(receiveSudoku(sudoku.data)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const updateSudoku = data => dispatch => (
     patchSudoku(data)
         .then(sudoku => dispatch(receiveSudoku(sudoku.data)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
