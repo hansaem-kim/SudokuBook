@@ -1,9 +1,12 @@
+
+
 .show-page, .profile-page{
     background: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    
     h1 {
         font-size: 2.5rem;
         color: white;
@@ -44,28 +47,40 @@
 
 .posts-friends{
     display: flex;
-
-    justify-content: space-evenly;
     
+    margin-bottom: 50px;
+
+    .posts{
+        h2{
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            margin-left: 10px;
+            border-bottom: 3px solid white;
+            width: 200px;
+            padding: 10px;
+            padding-left: 0px;
+        }
+    }
     .friends{
         display: flex;
         flex-direction: column;
         margin-top: 20px;
-        border-top: 3px solid white;
+        border: 3px solid white;
+        border-radius: 4px;
 
-        color: white;
-
+        
         h3{
-            padding-left: 10px;
-            padding-top: 10px;
-            border-left: 3px solid white;
+            padding: 10px;
+            padding-bottom: 0px;
         }
         
         .pf-user{
             display: flex;
+            justify-content: space-between;
             align-items: center;
             
-            border-left: 3px solid white;
+            
             padding-left: 10px;
             padding-top: 10px;
 
@@ -89,3 +104,29 @@
         }
     }
 }
+
+.right{
+    margin-top: 10px;
+    margin-left: 60px;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    .purple-part{
+        border-radius: 8px;
+        padding: 1em;
+        
+        background: linear-gradient(135deg, #8360c3 0%, #0082c8 100%);
+    }
+    
+
+    h1{
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+}
+

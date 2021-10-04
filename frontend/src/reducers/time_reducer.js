@@ -6,8 +6,6 @@ const TimeReducer = (oldState={}, action) => {
     switch(action.type){
         case RECEIVE_TIME:
             return action.time;
-        case RECEIVE_NEW_POST:
-            return {};
         default:
             return oldState;
     }
