@@ -137,3 +137,45 @@
         background-color: rgba(211, 211, 211, 0.7);
     }
 }
+
+.tip-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    margin-top: 10px;
+    top: 15em;
+    right: 7vw;
+    border-radius: 10px;
+    background-color: rgba(211, 211, 211, 0.3);
+    color: white;
+    width: 200px;
+    padding: 15px;
+
+    header {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(270deg, #2ebf91 0%, #8360c3 75%);
+        border-image-slice: 1;
+        width: 200px;
+        margin-bottom: 10px;
+    }
+
+    h2{
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    li {
+        padding: 5px;
+
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+}
