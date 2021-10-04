@@ -24,4 +24,13 @@
             margin-bottom: 10px;
         }
     }
+
+    .instruction-link {
+        text-decoration: none;
+        color: rgb(55, 89, 182);
+        font-weight: 900;
+        &:hover {
+            color: darkgray;
+        }
+    }
 }
