@@ -6,7 +6,7 @@ export default class Instructions extends Component {
             <div className='instructions-container'>
                 <span onClick={this.props.closeModal} className="close-x">X</span>
                 <h1>Welcome to SudokuBook!</h1>
-                <p>SudokuBook is a social networking app centered on playing <a href="https://en.wikipedia.org/wiki/Sudoku" target="_blank">sudoku</a>. Here's how to get started: </p>
+                <p>SudokuBook is a social networking app centered on playing <a className="instruction-link" href="https://en.wikipedia.org/wiki/Sudoku" target="_blank">sudoku</a>. Here's how to get started: </p>
                 <ul>
                     <li>Create an account (or log in)</li>
                     <li>Play a game by accepting a challenge from the feed or playing a random puzzle</li>
