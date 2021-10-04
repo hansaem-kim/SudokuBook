@@ -31,15 +31,15 @@ SudokuBook is simple to use and mirrors any other social media application.
 # Key Functionality 
 ## Play Sudoku
 Users can fill out puzzles and post completion times. Completion times are added to that puzzles leaderboard if the user is in the top 5! 
-INSERT PHOTO
+![sudoku](frontend/src/assets/images/show.png)
 
 ## Posts
 Users can write messages to post to the social feed. After completing a puzzle, users will be prompted to write a message tied to their completion time to post to the feed. However, users can still post to the feed without having to complete a puzzle. Users have the ability to edit and delete their own posts. 
-PHOTO
+![post](frontend/src/assets/images/post.png)
 
 ## Social Feed
 All users have access to the social feed. This is where a user can see all other users' posts and accept any challenges. This is also where users can find their own posts and edit/delete them. 
-PHOTO
+![feed](frontend/src/assets/images/feed.png)
 
 ## Profile and Friends
 Each user has a profile. A profile will show a user's posts and friends. Users can search for friends through the search bar located at the top of the screen and add friends through their profiles. Users may also delete friends from their friends list. 
