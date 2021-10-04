@@ -32,17 +32,18 @@ class Profile extends React.Component {
         })
         
       })
-      if (items.length === 0){
-        let item = <h3>You dont follow anyone</h3>
-        items.push(item);
-      }
+      // if (items.length === 0){
+      //   let item = <h3 key="2" >You dont follow anyone</h3>
+      //   items.push(item);
+      // }
       
 
 
 
       return (
         <div className="profile-page">
-          <h1>Welcome to your profile page, {currentUser.username}</h1>
+          <h1>Welcome to your profile page, {currentUser.firstName} {currentUser.lastName}</h1>
+          <h4>People can find you by searching your username: {currentUser.username}</h4>
           <div className="posts-friends">
             <div className="posts">
               <h2>Your Posts</h2>
@@ -55,9 +56,10 @@ class Profile extends React.Component {
             </div>
             <div className="right" >
               <div className="purple-part" >
-                <h1>Following <FontAwesomeIcon icon={faUserFriends}/></h1>
+                <h1>Following {items.length} <FontAwesomeIcon icon={faUserFriends}/></h1>
                 <div className="friends">
-                  {items}
+                  {items.length ? items : <h3 key="2" >You dont follow anyone</h3>}
+                  
                 </div>
               </div>
             </div>

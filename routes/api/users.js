@@ -73,7 +73,9 @@ router.post('/login', (req, res) => {
                     if (isMatch){
                         const payload = {
                             id: user.id,
-                            username: user.username
+                            username: user.username,
+                            firstName: user.first_name,
+                            lastName: user.last_name
                         }
                         jwt.sign(
                             payload,
