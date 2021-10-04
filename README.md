@@ -43,4 +43,4 @@ All users have access to the social feed. This is where a user can see all other
 
 ## Profile and Friends
 Each user has a profile. A profile will show a user's posts and friends. Users can search for friends through the search bar located at the top of the screen and add friends through their profiles. Users may also delete friends from their friends list. 
-PHOTO
+![profile](frontend/src/assets/images/profile.png)
