@@ -29,8 +29,8 @@ const mSTP = state => {
 const mDTP = dispatch => ({
     fetchFollowers: id => dispatch(getFollowers(id)),
     fetchFollows: id => dispatch(getFollows(id)),
-    fetchUser: id => dispatch(fetchUser(id)),
     fetchUserFollows: id => dispatch(getUserFollows(id)),
+    fetchUser: id => dispatch(fetchUser(id)),
     follow: id => dispatch(follow(id)),
     unfollow: id => dispatch(unfollow(id)),
     fetchPosts: () => (dispatch(fetchPosts())),

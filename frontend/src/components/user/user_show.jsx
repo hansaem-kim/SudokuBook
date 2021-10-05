@@ -14,34 +14,37 @@ class UserShow extends React.Component{
         
         this.handleFollow = this.handleFollow.bind(this);
         
-        this.props.fetchUserFollows(this.props.currentUser.id).then(() => {
-            
-            this.props.follows.forEach(el => {
-                if (el.followee == this.props.match.params.userId){
+        this.props.fetchUserFollows(this.props.currentUser.id).then( () =>{
+            this.props.userFollows.map(el => {
+                if (el.followee === this.props.match.params.userId){
                     this.setState({
                         following: true
                     })
-                    
                 }
             })
-            
         })
 
-        this.props.fetchFollowers(this.props.match.params.userId);
-        this.props.fetchFollows(this.props.match.params.userId);
-        this.props.fetchUserFollows(this.props.currentUser.id);
         
-        if (this.props.currentUser && this.props.match.params.userId && (this.props.currentUser.id === this.props.match.params.userId)){
-            this.setState({
-                profile: true
-            })
-        }
+        
+
     }
 
 
     componentDidMount(){
         this.props.fetchPosts();
+        if (this.props.currentUser && this.props.match.params.userId && (this.props.currentUser.id === this.props.match.params.userId)){
+            this.setState({
+                profile: true
+            })
+        }
+
+        this.props.fetchFollowers(this.props.match.params.userId);
+        this.props.fetchFollows(this.props.match.params.userId);
+        this.props.fetchUserFollows(this.props.currentUser.id);
+        
     }
+
+    
     
 
     handleFollow(e){
@@ -55,35 +58,34 @@ class UserShow extends React.Component{
                 following: !this.state.following
             }))
         }
-        
+        this.props.fetchUserFollows(this.props.currentUser.id);
     }
 
     render(){
         let user = "";
         let button = null;
-
-
+        
+        
         if (this.props.currentUser){
-           
+            
             if (Object.keys(this.props.users).length !== 0){
-
+                
                 for (const property in this.props.users){
                     if (this.props.users[property]._id === this.props.match.params.userId){
-                      
+                        
                         user = this.props.users[property];
                     }
                 }
                 
                 
-
+                
                 button = <button 
-                    onClick={this.handleFollow} className={this.state.following ? " follow-button unfollow" : "follow-button follow"} >{this.state.following ? "UnFollow" : "Follow"}
+                onClick={this.handleFollow} className={this.state.following ? " follow-button unfollow" : "follow-button follow"} >{this.state.following ? "UnFollow" : "Follow"}
                 </button>;
             }
         }
 
         const {posts, currentUser, deletePost, follows, followers, userFollows, users } = this.props;
-
 
         let followsArr = [];
         if (follows && typeof user === "object"){
@@ -98,7 +100,6 @@ class UserShow extends React.Component{
         }
 
         let followersArr = [];
-
         if (followers && typeof user === "object"){
 
             followers.map(friend => {
@@ -113,32 +114,40 @@ class UserShow extends React.Component{
         }
             
 
+        let urs = false;
+
+        if (this.props.currentUser.id === this.props.match.params.userId){
+            urs = true
+        }
+
+        let CUfollowing = false;
+
+
        
-        
         return (
             <div className="profile-page">
                 {
-                    this.props.profile ? 
+                    urs ? 
                     <div>
                         <h1>Welcome to your profile page, {currentUser.firstName} {currentUser.lastName}</h1>
                         <h4>People can find you by searching your username: {currentUser.username}</h4>
                     </div>
                     :
-                    <h1>Welcome to {user.username}'s page</h1>
+                    <h1>Welcome to {user.username}'s page { button }</h1>
                 }
                 <div className="posts-friends">
                     <div className="right" >
                         <div className="purple-part" >
                             <h1>Followers {followersArr.length} <FontAwesomeIcon icon={faUserFriends}/></h1>
                             <div className="friends">
-                                {followersArr.length ? followersArr : <h3 key="2" >You dont follow anyone</h3>}
+                                {followersArr.length ? followersArr : <h3 key="2" >No Followers Yet</h3>}
                             </div>
                         </div>
                     </div>
                     <div className="posts">
-                    <h2>Your Posts</h2>
+                    <h2>Posts</h2>
                     {posts.map(post => {
-                        if (post.user == currentUser.id){
+                        if (post.user == user._id){
                         return <PostIndexItem post={post} currentUser={currentUser}
                         deletePost={deletePost} key={post._id} />
                         }
@@ -148,7 +157,7 @@ class UserShow extends React.Component{
                         <div className="purple-part" >
                             <h1>Following {followsArr.length} <FontAwesomeIcon icon={faUserFriends}/></h1>
                             <div className="friends">
-                                {followsArr.length ? followsArr : <h3 key="2" >You dont follow anyone</h3>}
+                                {followsArr.length ? followsArr : <h3 key="2" >Not Following Anyone</h3>}
                             </div>
                         </div>
                     </div>

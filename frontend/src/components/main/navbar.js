@@ -2,17 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo.png';
 import SearchContainer from '../search/search_container';
+import {withRouter} from 'react-router-dom';
 
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
     
         this.logoutUser = this.logoutUser.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     logoutUser(e) {
         e.preventDefault();
         this.props.logout();
+    }
+
+    handleClick(e){
+        e.preventDefault();
+        this.props.fetchFollowers(this.props.currentUser.id);
+        this.props.fetchFollows(this.props.currentUser.id);
+        this.props.fetchUserFollows(this.props.currentUser.id);
+        this.props.history.push(`/${this.props.currentUser.id}`);
     }
 
     render() {
@@ -25,8 +35,7 @@ class NavBar extends React.Component {
                 <SearchContainer />
                 <div className="navbar-user">
                     <Link className="navbar-user-link to-feed" to={'/feed'}>Feed</ Link> 
-                    {/* {console.log(`cu ${this.props.currentUser}`)} */}
-                    <Link className="navbar-user-link" to={this.props.currentUser ? `/${this.props.currentUser.id}` : '/tt' }>Profile</Link>
+                    <Link className="navbar-user-link" to={`/${this.props.currentUser.id}`} onClick={this.handleClick} >Profile</Link>
                     <Link className="navbar-user-link" to={'/about'}>About</Link>
                     
                     <button onClick={this.logoutUser}>Logout</button>
@@ -36,4 +45,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

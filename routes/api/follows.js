@@ -26,7 +26,7 @@ router.post('/:followee',
 passport.authenticate('jwt', { session: false }),
 (req, res) => {
 
-    Follow.findOne({ followee: req.params.followee })
+    Follow.findOne({ followee: req.params.followee, follower: req.user.id })
         .then(follow => {
             if (follow){
                 res.send("Already follows")
