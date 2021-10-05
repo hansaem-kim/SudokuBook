@@ -25,7 +25,8 @@ class NavBar extends React.Component {
                 <SearchContainer />
                 <div className="navbar-user">
                     <Link className="navbar-user-link to-feed" to={'/feed'}>Feed</ Link> 
-                    <Link className="navbar-user-link" to={'/profile'}>Profile</Link>
+                    {/* {console.log(`cu ${this.props.currentUser}`)} */}
+                    <Link className="navbar-user-link" to={this.props.currentUser ? `/${this.props.currentUser.id}` : '/tt' }>Profile</Link>
                     <Link className="navbar-user-link" to={'/about'}>About</Link>
                     
                     <button onClick={this.logoutUser}>Logout</button>

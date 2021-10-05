@@ -8,10 +8,17 @@ const passport = require('passport');
 
 const Follow = require('../../models/Follow');
 
-router.get('/:currentId', (req, res) => {
+router.get('/:id', (req, res) => {
     
-    Follow.find({ follower: req.params.currentId })
+    Follow.find({ follower: req.params.id })
         .then(follows => res.json(follows))
+        .catch(err => res.send(err))
+});
+
+router.get('/f/:id', (req, res) => {
+    
+    Follow.find({ followee: req.params.id })
+        .then(followers => res.json(followers))
         .catch(err => res.send(err))
 });
 
