@@ -11,3 +11,7 @@ export const fetchFollows = currentUserId => (
 export const unfollow = id => (
     axios.delete(`/api/follows/${id}`)
 );
+
+export const fetchFollowers = id => (
+    axios.get(`/api/follows/f/${id}`)
+);

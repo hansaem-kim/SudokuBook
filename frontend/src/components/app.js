@@ -20,7 +20,6 @@ const App = () => (
             <ProtectedRoute exact path='/about' component={About} />
             <Route exact path="/" component={MainPageContainer} />
             <ProtectedRoute exact path="/home" component={HomeContainer} />
-            <ProtectedRoute exact path="/profile" component={ProfileContainer} />
             <ProtectedRoute exact path={`/sudokus/:sudokuId`} component={SudokuShowContainer} />
             <ProtectedRoute exact path='/feed' component={FeedContainer} />
             <ProtectedRoute exact path='/:userId' component={UserShowContainer} />

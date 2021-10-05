@@ -1,72 +1,71 @@
-import React from 'react';
-import PostIndexItem from '../post/post_index_item';
-import FriendItem from './friend_item';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserFriends} from '@fortawesome/free-solid-svg-icons';
+// import React from 'react';
+// import PostIndexItem from '../post/post_index_item';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faUserFriends} from '@fortawesome/free-solid-svg-icons';
 
 
-class Profile extends React.Component {
-    constructor(props) {
-        super(props);
+// class Profile extends React.Component {
+//     constructor(props) {
+//         super(props);
 
-        this.props.fetchFollows(this.props.currentUser.id);
-    }
+//         this.props.fetchFollows(this.props.currentUser.id);
+//     }
 
-    componentDidMount(){
-      this.props.fetchPosts();
-    }
+//     componentDidMount(){
+//       this.props.fetchPosts();
+//     }
     
-    render() {
-      const {posts, deletePost, currentUser, friends, users} = this.props;
+//     render() {
+//       const {posts, deletePost, currentUser, friends, users} = this.props;
 
 
 
-      let items = [];
-      friends.map(friend => {
+//       let items = [];
+//       friends.map(friend => {
         
-        users.map(user => {
-          if (friend.followee == user._id){
-            let item =  <FriendItem currentUser={currentUser} key={user._id} user={user} />
-            items.push(item);
-          }
-        })
+//         users.map(user => {
+//           if (friend.followee == user._id){
+//             let item =  <FriendItem currentUser={currentUser} key={user._id} user={user} />
+//             items.push(item);
+//           }
+//         })
         
-      })
-      // if (items.length === 0){
-      //   let item = <h3 key="2" >You dont follow anyone</h3>
-      //   items.push(item);
-      // }
+//       })
+//       // if (items.length === 0){
+//       //   let item = <h3 key="2" >You dont follow anyone</h3>
+//       //   items.push(item);
+//       // }
       
 
 
 
-      return (
-        <div className="profile-page">
-          <h1>Welcome to your profile page, {currentUser.firstName} {currentUser.lastName}</h1>
-          <h4>People can find you by searching your username: {currentUser.username}</h4>
-          <div className="posts-friends">
-            <div className="posts">
-              <h2>Your Posts</h2>
-              {posts.map(post => {
-                if (post.user == currentUser.id){
-                  return <PostIndexItem post={post} currentUser={currentUser}
-                  deletePost={deletePost} key={post._id} />
-                }
-              })}
-            </div>
-            <div className="right" >
-              <div className="purple-part" >
-                <h1>Following {items.length} <FontAwesomeIcon icon={faUserFriends}/></h1>
-                <div className="friends">
-                  {items.length ? items : <h3 key="2" >You dont follow anyone</h3>}
+//       return (
+//         <div className="profile-page">
+//           <h1>Welcome to your profile page, {currentUser.firstName} {currentUser.lastName}</h1>
+//           <h4>People can find you by searching your username: {currentUser.username}</h4>
+//           <div className="posts-friends">
+//             <div className="posts">
+//               <h2>Your Posts</h2>
+//               {posts.map(post => {
+//                 if (post.user == currentUser.id){
+//                   return <PostIndexItem post={post} currentUser={currentUser}
+//                   deletePost={deletePost} key={post._id} />
+//                 }
+//               })}
+//             </div>
+//             <div className="right" >
+//               <div className="purple-part" >
+//                 <h1>Following {items.length} <FontAwesomeIcon icon={faUserFriends}/></h1>
+//                 <div className="friends">
+//                   {items.length ? items : <h3 key="2" >You dont follow anyone</h3>}
                   
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-}
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       );
+//     }
+// }
 
-export default Profile;
+// export default Profile;
