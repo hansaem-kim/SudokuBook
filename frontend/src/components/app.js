@@ -22,7 +22,7 @@ const App = () => (
             <ProtectedRoute exact path="/home" component={HomeContainer} />
             <ProtectedRoute exact path={`/sudokus/:sudokuId`} component={SudokuShowContainer} />
             <ProtectedRoute exact path='/feed' component={FeedContainer} />
-            <ProtectedRoute exact path='/:userId' component={UserShowContainer} />
+            <ProtectedRoute exact path='/:userId' component={(props) => <UserShowContainer  {...props} key={window.location.pathname} />} />
 
         </Switch>
 
