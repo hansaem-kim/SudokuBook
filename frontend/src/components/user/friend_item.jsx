@@ -15,7 +15,7 @@ class FriendItem extends React.Component {
         
 
         this.handleFollow = this.handleFollow.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount(){
@@ -45,22 +45,22 @@ class FriendItem extends React.Component {
         this.props.fetchUserFollows(this.props.currentUser.id);
     }
 
-    handleClick(e){
-        e.preventDefault();
+    // handleClick(e){
+    //     e.preventDefault();
 
-        this.props.fetchFollowers(this.props.user._id);
-        this.props.fetchFollows(this.props.user._id);
-        this.props.fetchUserFollows(this.props.currentUser.id);
+    //     this.props.fetchFollowers(this.props.user._id);
+    //     this.props.fetchFollows(this.props.user._id);
+    //     this.props.fetchUserFollows(this.props.currentUser.id);
         
-        this.props.history.push(`/${this.props.user._id}`)
-    }
+    //     this.props.history.push(`/${this.props.user._id}`)
+    // }
 
     render(){
         const { user, currentUser } = this.props;
         return(
             <div className="pf-user">
                 {/* <button className="user-link" to={`/${user._id}`}>{user.username}</button> */}
-                <Link className="user-link" to='/' onClick={this.handleClick}>{user.username}</Link>
+                <Link className="user-link" to={`/${this.props.user._id}`} >{user.username}</Link>
                 { 
                     this.props.currentUser.id !== this.props.user._id ?
                     <button 

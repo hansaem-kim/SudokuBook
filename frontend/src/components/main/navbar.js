@@ -9,7 +9,7 @@ class NavBar extends React.Component {
         super(props);
     
         this.logoutUser = this.logoutUser.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
     }
 
     logoutUser(e) {
@@ -17,13 +17,13 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
-    handleClick(e){
-        e.preventDefault();
-        this.props.fetchFollowers(this.props.currentUser.id);
-        this.props.fetchFollows(this.props.currentUser.id);
-        this.props.fetchUserFollows(this.props.currentUser.id);
-        this.props.history.push(`/${this.props.currentUser.id}`);
-    }
+    // handleClick(e){
+    //     e.preventDefault();
+    //     this.props.fetchFollowers(this.props.currentUser.id);
+    //     this.props.fetchFollows(this.props.currentUser.id);
+    //     this.props.fetchUserFollows(this.props.currentUser.id);
+    //     this.props.history.push(`/${this.props.currentUser.id}`);
+    // }
 
     render() {
         if (!this.props.loggedIn) return null;
@@ -35,7 +35,7 @@ class NavBar extends React.Component {
                 <SearchContainer />
                 <div className="navbar-user">
                     <Link className="navbar-user-link to-feed" to={'/feed'}>Feed</ Link> 
-                    <Link className="navbar-user-link" to={`/${this.props.currentUser.id}`} onClick={this.handleClick} >Profile</Link>
+                    <Link className="navbar-user-link" to={`/${this.props.currentUser.id}`}  >Profile</Link>
                     <Link className="navbar-user-link" to={'/about'}>About</Link>
                     
                     <button onClick={this.logoutUser}>Logout</button>
