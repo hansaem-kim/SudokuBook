@@ -19,15 +19,17 @@ class FriendItem extends React.Component {
     }
 
     componentDidMount(){
-       
-        this.props.follows.forEach(el => {
-            if (el.followee == this.props.user._id){
-                this.setState({
-                    following: true
-                })
-                
-            }
-        })
+       if(this.props.follows){
+
+           this.props.follows.forEach(el => {
+               if (el.followee == this.props.user._id){
+                   this.setState({
+                       following: true
+                   })
+                   
+               }
+           })
+       }
          
     }
 
