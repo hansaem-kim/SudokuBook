@@ -44,3 +44,54 @@ All users have access to the social feed. This is where a user can see all other
 ## Profile and Friends
 Each user has a profile. A profile will show a user's posts and friends. Users can search for friends through the search bar located at the top of the screen and add friends through their profiles. Users may also delete friends from their friends list. 
 ![profile](frontend/src/assets/images/profile.png)
+
+# Technical Implementation Snippets 
+## Sudoku Game Board Rendering
+The puzzle values themselves are stored in a 1d array in MongoDB. We make a request for a specific puzzle and turn that response into a 2D array with each subarray representing a row in the puzzle UI. Once the rows are separated, we render each individual tile as a separate component. Each tile tracks its own position and is passed down a method to update the board as props. This allows us to track user input in the `board` component. A challenge we faced in this implementation was tracking which tiles were pre-filled the puzzle (meaning players could not change those tiles) and which tiles were blank (input tiles). We tracked the type of tile through the tile's props so each tile knew whether or not it was an input tile. 
+```javascript
+// frontend/src/components/game/board.jsx
+    renderRow(twoDArray){
+        return twoDArray.map((row, i) => {
+            return (
+                <div className='row' key={`row-${i}`}>
+                    {this.renderTiles(row, i)}
+                </div>
+            )
+        })
+    }
+
+    renderTiles(row, i){
+        return row.map((ele, j) => {
+            if (ele === 0) {
+                this.inputTiles.push([i,j])
+            }
+            let inputTileBoolean = false;
+            this.inputTiles.forEach(subArr => {
+                if (JSON.stringify(subArr) === JSON.stringify([i, j])){
+                    inputTileBoolean = true;
+                }
+            })
+
+            return (
+                <Tile
+                    value={ele}
+                    coordinates={[i, j]}
+                    key={[i, j]}
+                    updateBoard={this.updateBoard}
+                    inputTile={inputTileBoolean}
+                />
+            )
+        })
+    }
+
+    updateBoard(coordinates, value){
+        let oldBoard = Object.assign([], this.state.gameBoard)
+        this.setState({ 
+            gameBoard: Object.assign(
+                [], 
+                oldBoard, 
+                oldBoard[coordinates[0]][coordinates[1]] = parseInt(value)
+            ) 
+        })
+    }
+```
